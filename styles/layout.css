@@ -150,15 +150,6 @@
   overflow: hidden;
 }
 
-.cover-cells {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.04;
-  pointer-events: none;
-  image-rendering: pixelated;
-}
 
 .cover-logos {
   position: absolute;
@@ -277,15 +268,6 @@
   overflow: hidden;
 }
 
-.section-cells {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.2;
-  pointer-events: none;
-  image-rendering: pixelated;
-}
 
 .section-content {
   position: relative;
@@ -850,10 +832,12 @@ figcaption a {
   image-rendering: pixelated;
 }
 
+/* Cover and section variants need z-index: 0 so cells render above their dark backgrounds */
+.gol-bg.gol-cover   { opacity: 0.04;  z-index: 0; }
+.gol-bg.gol-section { opacity: 0.2;   z-index: 0; }
+
 @media (prefers-reduced-motion: reduce) {
-  .gol-bg,
-  .cover-cells,
-  .section-cells { display: none; }
+  .gol-bg { display: none; }
 }
 
 /* ===== BREADCRUMB ===== */
