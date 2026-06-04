@@ -188,6 +188,69 @@ layout: two-cols
 
 
 ---
+layout: fact
+---
+
+**42%** of people cannot identify a misleading chart on first reading.
+
+---
+layout: four-cells
+---
+
+# Four cells
+
+Description · context · narrative.
+
+::result::
+
+<div class="border-box" style="height:100%;display:flex;align-items:center;justify-content:center;">live result · SVG · canvas</div>
+
+::left::
+
+```js
+// Approach A
+const data = [1, 2, 3]
+data.forEach(d => console.log(d))
+```
+
+::right::
+
+```js
+// Approach B
+d3.selectAll('circle')
+  .data([1, 2, 3])
+  .join('circle')
+```
+
+---
+layout: two-cols-bottom
+---
+
+# Two cols + bottom
+
+Left column · context, definitions, narrative.
+
+- Point A
+- Point B
+- Point C
+
+::right::
+
+```javascript
+const data = [1, 2, 3, 4, 5]
+
+const result = data
+  .filter(d => d > 2)
+  .map(d => d * 2)
+
+console.log(result) // [6, 8, 10]
+```
+
+::bottom::
+
+<div class="note-box">Bottom zone · full width · shared result, figure, or note spanning both columns.</div>
+
+---
 layout: default
 ---
 

@@ -288,21 +288,16 @@
 /* ===== FACT / STATEMENT LAYOUTS ===== */
 .slidev-layout.fact,
 .slidev-layout.statement {
-  @apply flex flex-col justify-center;
+  @apply flex flex-col justify-center items-center text-center;
 }
 
-.slidev-layout.fact > *,
-.slidev-layout.statement > * {
-  width: 100%;
-}
-
-.slidev-layout.fact h1,
 .slidev-layout.fact p,
-.slidev-layout.statement h1,
 .slidev-layout.statement p {
-  @apply text-3xl;
   font-family: var(--font-sans);
-  line-height: 1.4;
+  font-size: 3.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  max-width: 72%;
 }
 
 .slidev-layout.fact strong,
@@ -710,9 +705,21 @@ figcaption a {
 .photo-wall-4 .photo-wall-item-4 { grid-column: 3; grid-row: 2; }
 
 /* 6 — 3×2 grid */
+/* 5–6 images: 3-column grid, random spans via inline style */
+.photo-wall-5,
 .photo-wall-6 {
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-flow: dense;
+}
+
+/* 7–9 images: 4-column grid, random spans via inline style */
+.photo-wall-7,
+.photo-wall-8,
+.photo-wall-9 {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-flow: dense;
 }
 
 .photo-wall figure { margin: 0; position: relative; overflow: hidden; }
@@ -724,7 +731,7 @@ figcaption a {
 .four-cells {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: 1fr 1fr;
   min-height: 0;
 }
 
@@ -783,7 +790,7 @@ figcaption a {
 .two-cols-bottom {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: 1fr auto;
   gap: 0 2rem;
   min-height: 0;
 }

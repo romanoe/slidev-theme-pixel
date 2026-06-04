@@ -136,8 +136,75 @@ caption: "Author, <em>Title</em> (Year)"
 Text on the left.
 ```
 
-`backgroundSize` accepts `contain` (default) or `cover`.
+`backgroundSize` accepts `contain` (default) or `cover`. The `caption` prop also accepts a `::caption::` named slot for richer markup.
 
+### `fact`
+
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/13-fact.png" width="60%" />
+
+A single bold statement, vertically centered.
+
+```md
+---
+layout: fact
+---
+
+**1 in 5** data visualisations contains a misleading element.
+```
+
+### `four-cells`
+
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/14-four-cells.png" width="60%" />
+
+2×2 grid: description + live result (top row) · two code columns (bottom row). Designed for side-by-side code comparisons.
+
+```md
+---
+layout: four-cells
+---
+
+# Title
+
+Description or context.
+
+::result::
+
+<!-- live SVG, HTML, or canvas result -->
+
+::left::
+
+\`\`\`js
+// Vanilla JS
+\`\`\`
+
+::right::
+
+\`\`\`js
+// D3
+\`\`\`
+```
+
+### `two-cols-bottom`
+
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/15-two-cols-bottom.png" width="60%" />
+
+Two columns on top, full-width zone below both.
+
+```md
+---
+layout: two-cols-bottom
+---
+
+Left column content.
+
+::right::
+
+Right column content.
+
+::bottom::
+
+Full-width content below both columns.
+```
 
 ---
 
@@ -163,7 +230,8 @@ Full-screen photo grid · always dark · automatic layout based on image count.
 | 2 | Side by side |
 | 3 | Equal thirds |
 | 4 | Two tall left · two stacked right |
-| 6 | 3×2 grid |
+| 5–6 | 3-column grid · random spans |
+| 7–9 | 4-column grid · random spans |
 
 `href` is optional. `caption` accepts inline HTML.
 
