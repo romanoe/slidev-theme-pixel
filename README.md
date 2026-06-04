@@ -1,6 +1,6 @@
 # slidev-theme-pixel
 
-[![NPM version](https://img.shields.io/npm/v/slidev-theme-pixel?color=000&label=)](https://www.npmjs.com/package/slidev-theme-pixel) [![CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![NPM version](https://img.shields.io/npm/v/slidev-theme-pixel?color=000&label=)](https://www.npmjs.com/package/slidev-theme-pixel) [![MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
 A stark, pixel-driven Slidev theme. Black and white. Monospace. Every slide carries a pixel grid · subtle, structural, always present.
 
@@ -287,14 +287,8 @@ npm install
 npm run dev
 ```
 
-Screenshots are stored in `./screenshots/`. To generate them, export slides to PNG with:
-
-```bash
-npx slidev export example.md --format png
-```
-
 ---
 
 ## License
 
-[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+[MIT](./LICENSE)

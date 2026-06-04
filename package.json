@@ -1,13 +1,13 @@
 {
   "name": "slidev-theme-pixel",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "A stark, pixel-driven Slidev theme · black and white, monospace, pixel grid on every slide.",
   "keywords": [
     "slidev-theme",
     "slidev"
   ],
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "files": [
     "layouts",
     "components",
@@ -27,8 +27,7 @@
   },
   "devDependencies": {
     "@iconify-json/ph": "*",
-    "@slidev/cli": "^52.16.0",
-    "playwright-chromium": "^1.60.0"
+    "@slidev/cli": "^52.16.0"
   },
   "slidev": {
     "colorSchema": "both",
