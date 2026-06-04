@@ -1,0 +1,47 @@
+{
+  "name": "slidev-theme-pixel",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "A stark, pixel-driven Slidev theme · black and white, monospace, pixel grid on every slide.",
+  "keywords": [
+    "slidev-theme",
+    "slidev"
+  ],
+  "license": "CC-BY-4.0",
+  "files": [
+    "layouts",
+    "components",
+    "styles",
+    "setup",
+    "public"
+  ],
+  "engines": {
+    "node": ">=20.12.0",
+    "slidev": ">=0.52.0"
+  },
+  "scripts": {
+    "dev": "slidev example.md"
+  },
+  "dependencies": {
+    "@slidev/types": "^52.16.0"
+  },
+  "devDependencies": {
+    "@iconify-json/ph": "*",
+    "@slidev/cli": "^52.16.0",
+    "playwright-chromium": "^1.60.0"
+  },
+  "slidev": {
+    "colorSchema": "both",
+    "defaults": {
+      "fonts": {
+        "sans": "Plus Jakarta Sans",
+        "serif": "Plus Jakarta Sans",
+        "mono": "Atkinson Hyperlegible Mono"
+      },
+      "transition": false,
+      "drawings": {
+        "persist": false
+      }
+    }
+  }
+}
