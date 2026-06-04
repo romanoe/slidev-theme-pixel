@@ -288,7 +288,7 @@
 /* ===== FACT / STATEMENT LAYOUTS ===== */
 .slidev-layout.fact,
 .slidev-layout.statement {
-  @apply flex flex-col justify-center items-center text-center;
+  @apply flex flex-col justify-center;
 }
 
 .slidev-layout.fact p,
@@ -297,7 +297,8 @@
   font-size: 3.5rem;
   font-weight: 400;
   line-height: 1.2;
-  max-width: 72%;
+  width: 72%;
+  margin: 0 auto;
   text-align: center;
 }
 
