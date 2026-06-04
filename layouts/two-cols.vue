@@ -9,7 +9,6 @@ defineProps<{ class?: string; layoutClass?: string }>()
     <GolBackground />
     <div class="col-left" :class="$props.class">
       <slot />
-      <slot name="left" />
     </div>
     <div class="col-right" :class="$props.class">
       <slot name="right" />

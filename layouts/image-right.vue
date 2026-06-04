@@ -9,6 +9,8 @@ const props = defineProps<{
   caption?: string
 }>()
 
+const slots = defineSlots<{ default(): unknown; caption?(): unknown }>()
+
 const imgClass = computed(() =>
   props.backgroundSize === 'contain' ? 'object-contain' : 'object-cover'
 )
@@ -22,7 +24,9 @@ const imgClass = computed(() =>
     </div>
     <div class="image-right-col">
       <img v-if="image" :src="image" class="image-right-img" :class="imgClass" />
-      <figcaption v-if="caption" v-html="caption" class="px-3 pt-1" />
+      <figcaption v-if="slots.caption || caption" class="px-3 pt-1">
+        <slot name="caption"><span v-html="caption" /></slot>
+      </figcaption>
     </div>
   </div>
 </template>
