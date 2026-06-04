@@ -788,6 +788,14 @@ figcaption a {
   flex-shrink: 0;
 }
 
+/* Light mode: white backdrop on cells so GoL pixels don't bleed into text */
+html:not(.dark) .cell-text,
+html:not(.dark) .cell-result,
+html:not(.dark) .cell-left,
+html:not(.dark) .cell-right {
+  background: rgba(255, 255, 255, 0.9);
+}
+
 /* ===== TWO-COLS-BOTTOM ===== */
 .two-cols-bottom {
   display: grid;
@@ -827,6 +835,12 @@ figcaption a {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+html:not(.dark) .col-left,
+html:not(.dark) .col-right,
+html:not(.dark) .col-bottom {
+  background: rgba(255, 255, 255, 0.9);
 }
 
 /* ===== GAME OF LIFE BACKGROUND (global) ===== */
