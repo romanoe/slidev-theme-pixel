@@ -5,19 +5,19 @@
 A stark, pixel-driven Slidev theme. Black and white. Monospace. Every slide carries a pixel grid · subtle, structural, always present.
 
 <p align="center">
-  <img src="./screenshots/01-cover.png" width="49%" />
-  <img src="./screenshots/02-section.png" width="49%" />
+  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/01-cover.png" width="49%" />
+  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/02-section.png" width="49%" />
 </p>
 <p align="center">
-  <img src="./screenshots/07-img-right.png" width="49%" />
-  <img src="./screenshots/12-masonry.png" width="49%" />
+  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/07-img-right.png" width="49%" />
+  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/12-masonry.png" width="49%" />
 </p>
 
 ### Light · Dark
 
 | light theme | dark theme |
 |---|---|
-| <img src="./screenshots/01-cover.png" height="220" /> | <img src="./screenshots/01-cover-dm.png" height="220" /> |
+| <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/01-cover.png" height="220" /> | <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/01-cover-dm.png" height="220" /> |
 
 ---
 
@@ -74,7 +74,7 @@ layout: cover
 
 ### `section`
 
-<img src="./screenshots/02-section.png" width="60%" />
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/02-section.png" width="60%" />
 
 ```md
 ---
@@ -88,7 +88,7 @@ _Subtitle line_
 
 ### `default`
 
-<img src="./screenshots/03-default.png" width="60%" />
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/03-default.png" width="60%" />
 
 ```md
 # Slide title
@@ -103,7 +103,7 @@ Short sentences. One idea per bullet.
 
 ### `two-cols`
 
-<img src="./screenshots/06-two-cols.png" width="60%" />
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/06-two-cols.png" width="60%" />
 
 ```md
 ---
@@ -121,7 +121,7 @@ Right column content.
 
 ### `image-right`
 
-<img src="./screenshots/07-img-right.png" width="60%" />
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/07-img-right.png" width="60%" />
 
 ```md
 ---
@@ -145,7 +145,7 @@ Text on the left.
 
 ### `<PhotoWall>`
 
-<img src="./screenshots/12-masonry.png" width="60%" />
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/12-masonry.png" width="60%" />
 
 Full-screen photo grid · always dark · automatic layout based on image count.
 
@@ -173,7 +173,7 @@ Full-screen photo grid · always dark · automatic layout based on image count.
 
 ### Admonitions
 
-<img src="./screenshots/09-callout-cards.png" width="60%" />
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/09-callout-cards.png" width="60%" />
 
 ```html
 <div class="note-box">Neutral information or aside.</div>
@@ -184,7 +184,7 @@ Full-screen photo grid · always dark · automatic layout based on image count.
 
 ### Cards
 
-<img src="./screenshots/09-callout-cards.png" width="60%" />
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/09-callout-cards.png" width="60%" />
 
 ```html
 <div class="cards cards-3">
