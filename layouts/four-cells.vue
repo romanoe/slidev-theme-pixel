@@ -1,46 +1,20 @@
-<!--
-  Grille 4 cellules : texte + résultat (ligne haute) / code gauche + code droit (ligne basse).
-
-  Usage :
-  ---
-  layout: four-cells
-  ---
-
-  # Titre
-  Description (haut-gauche)
-
-  ::result::
-  Résultat visuel — SVG ou HTML (haut-droite)
-
-  ::left::
-  **Vanilla JS** (bas-gauche)
-
-  ::right::
-  **D3** (bas-droite)
--->
-
 <script setup lang="ts">
 import GolBackground from '../components/GolBackground.vue'
-
-const props = defineProps<{
-  class?: string
-  layoutClass?: string
-}>()
 </script>
 
 <template>
-  <div class="slidev-layout four-cells w-full h-full" :class="layoutClass">
+  <div class="slidev-layout w-full h-full grid grid-cols-2 grid-rows-2">
     <GolBackground />
-    <div class="cell-text" :class="props.class">
+    <div class="slide-cell pr-8">
       <slot />
     </div>
-    <div class="cell-result" :class="props.class">
+    <div class="slide-cell border-l border-theme pl-8 flex items-center justify-center">
       <slot name="result" />
     </div>
-    <div class="cell-left" :class="props.class">
+    <div class="slide-cell border-t border-theme pt-4 pr-8 flex flex-col">
       <slot name="left" />
     </div>
-    <div class="cell-right" :class="props.class">
+    <div class="slide-cell border-t border-l border-theme pt-4 pl-8 flex flex-col">
       <slot name="right" />
     </div>
   </div>

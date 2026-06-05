@@ -1,16 +1,14 @@
 <script setup lang="ts">
 import GolBackground from '../components/GolBackground.vue'
-
-defineProps<{ class?: string; layoutClass?: string }>()
 </script>
 
 <template>
-  <div class="slidev-layout two-columns w-full h-full grid grid-cols-2" :class="$props.layoutClass">
+  <div class="slidev-layout w-full h-full grid grid-cols-2">
     <GolBackground />
-    <div class="col-left" :class="$props.class">
+    <div class="slide-cell">
       <slot />
     </div>
-    <div class="col-right" :class="$props.class">
+    <div class="slide-cell border-l border-theme pl-8">
       <slot name="right" />
     </div>
   </div>

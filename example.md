@@ -47,37 +47,18 @@ Short, active sentences. One idea per bullet.
 
 # Cards
 
-<div class="cards cards-3">
-  <div class="card">
-    <span class="card-tag">Concept</span>
-    <p class="card-title">Perception</p>
-    <p class="card-body">How readers decode visual variables — position, size, colour, shape.</p>
-  </div>
+ ```html
   <div class="card">
     <span class="card-tag">Tool</span>
     <p class="card-title">D3.js</p>
     <p class="card-body">Data-driven DOM manipulation. Scales, axes, layouts, projections.</p>
   </div>
-  <div class="card">
-    <span class="card-tag">Method</span>
-    <p class="card-title">Scrollytelling</p>
-    <p class="card-body">Narrative driven by scroll position. Scrollama + IntersectionObserver.</p>
-  </div>
-  <div class="card">
-    <span class="card-tag">Ethics</span>
-    <p class="card-title">Missing data</p>
-    <p class="card-body">Absence as information. What is not shown shapes the story as much as what is.</p>
-  </div>
-  <div class="card">
-    <span class="card-tag">Format</span>
-    <p class="card-title">Cartography</p>
-    <p class="card-body">GeoJSON, projections, choropleth maps. Power of the frame.</p>
-  </div>
-  <div class="card">
-    <span class="card-tag">Output</span>
-    <p class="card-title">Data art</p>
-    <p class="card-body">Beyond charts · generative systems, noise, rule-based visuals.</p>
-  </div>
+  ```
+
+<div class="cards cards-3">
+  <Card tag="Concept" title="Perception">How readers decode visual variables · position, size, colour, shape.</Card>
+  <Card tag="Tool" title="D3.js">Data-driven DOM manipulation. Scales, axes, layouts, projections.</Card>
+  <Card tag="Method" title="Scrollytelling">Narrative driven by scroll position. Scrollama + IntersectionObserver.</Card>
 </div>
 
 ---
@@ -156,10 +137,10 @@ image: https://picsum.photos/1600/900
 
 # Callouts
 
-<div class="note-box">Neutral information or aside.</div>
-<div class="tip-box">Positive advice or best practice.</div>
-<div class="warning-box">Caution · something to verify carefully.</div>
-<div class="danger-box">Critical · a common mistake or something that must not be done.</div>
+<Callout type="note">Neutral information or aside.</Callout>
+<Callout type="tip">Positive advice or best practice.</Callout>
+<Callout type="warning">Caution · something to verify carefully.</Callout>
+<Callout type="danger">Critical · a common mistake or something that must not be done.</Callout>
 
 ---
 

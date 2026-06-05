@@ -1,40 +1,17 @@
-<!--
-  Deux colonnes en haut + contenu pleine largeur en bas.
-
-  Usage :
-  ---
-  layout: two-cols-bottom
-  ---
-
-  # Titre
-  Colonne gauche (texte)
-
-  ::right::
-  Colonne droite (code)
-
-  ::bottom::
-  Contenu pleine largeur (image, SVG...)
--->
-
 <script setup lang="ts">
 import GolBackground from '../components/GolBackground.vue'
-
-const props = defineProps<{
-  class?: string
-  layoutClass?: string
-}>()
 </script>
 
 <template>
-  <div class="slidev-layout two-cols-bottom w-full h-full" :class="layoutClass">
+  <div class="slidev-layout w-full h-full grid grid-cols-2 rows-main-bottom">
     <GolBackground />
-    <div class="col-left" :class="props.class">
+    <div class="slide-cell">
       <slot />
     </div>
-    <div class="col-right" :class="props.class">
+    <div class="slide-cell">
       <slot name="right" />
     </div>
-    <div class="col-bottom" :class="props.class">
+    <div class="slide-cell col-span-full border-t border-theme pt-3 flex items-center justify-center">
       <slot name="bottom" />
     </div>
   </div>
