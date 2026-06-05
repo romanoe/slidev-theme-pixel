@@ -153,10 +153,14 @@
 
 .cover-logo { height: 40px; object-fit: contain; }
 
-.cover-content {
+.cover-bottom {
   position: absolute;
   bottom: 2rem;
+  left: 4rem;
   right: 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 /* .cover h1 overrides .slidev-layout h1 (same specificity, later in file) */
@@ -207,16 +211,13 @@
 .cover-github:hover { opacity: 0.6; }
 
 .cover-meta {
-  position: absolute;
-  bottom: 2.5rem;
-  left: 4rem;
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
 }
 
 .cover-author { font-family: var(--font-mono); font-size: 1rem; font-weight: 700; color: var(--text); }
-.cover-email  { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-decoration: none; }
+.cover-email  { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); text-decoration: none; margin-bottom: 1rem; }
 .cover-date   { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); }
 
 /* ===== SECTION — inverts current color mode ===== */

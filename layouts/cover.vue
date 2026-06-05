@@ -38,7 +38,12 @@ const date     = computed(() =>
     <h1>{{ title }}</h1>
     <p v-if="subtitle" class="cover-subtitle">{{ subtitle }}</p>
 
-    <div class="cover-content">
+    <div class="cover-bottom">
+      <div class="cover-meta">
+        <span v-if="author" class="cover-author">{{ author }}</span>
+        <a v-if="email" :href="`mailto:${email}`" class="cover-email">{{ email }}</a>
+        <span class="cover-date">{{ date }}</span>
+      </div>
       <div class="cover-links">
         <a v-if="github" :href="github" class="cover-github">
           <svg viewBox="0 0 16 16" fill="currentColor" width="16" height="16" aria-hidden="true">
@@ -50,11 +55,6 @@ const date     = computed(() =>
           <img src="https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg" alt="CC BY 4.0" />
         </a>
       </div>
-    </div>
-    <div class="cover-meta">
-      <span v-if="author" class="cover-author">{{ author }}</span>
-      <a v-if="email" :href="`mailto:${email}`" class="cover-email">{{ email }}</a>
-      <span class="cover-date">{{ date }}</span>
     </div>
     <slot />
   </div>
