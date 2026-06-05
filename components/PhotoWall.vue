@@ -38,3 +38,58 @@ const spans = props.images.length >= 5
     </figure>
   </div>
 </template>
+
+<style scoped>
+.photo-wall {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  gap: 2px;
+  background: #000;
+  overflow: hidden;
+}
+
+.photo-wall-2 { grid-template-columns: 1fr 1fr; }
+.photo-wall-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+.photo-wall-4 {
+  grid-template-columns: 1fr 1fr 2fr;
+  grid-template-rows: 1fr 1fr;
+}
+.photo-wall-4 .photo-wall-item-1 { grid-column: 1; grid-row: 1 / span 2; }
+.photo-wall-4 .photo-wall-item-2 { grid-column: 2; grid-row: 1 / span 2; }
+.photo-wall-4 .photo-wall-item-3 { grid-column: 3; grid-row: 1; }
+.photo-wall-4 .photo-wall-item-4 { grid-column: 3; grid-row: 2; }
+
+/* 5–6: 3-column grid, random spans via inline style */
+.photo-wall-5,
+.photo-wall-6 {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-flow: dense;
+}
+
+/* 7–9: 4-column grid, random spans via inline style */
+.photo-wall-7,
+.photo-wall-8,
+.photo-wall-9 {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-flow: dense;
+}
+
+.photo-wall figure { margin: 0; position: relative; overflow: hidden; }
+.photo-wall a { display: block; width: 100%; height: 100%; }
+.photo-wall img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.photo-wall figcaption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 1.5rem 0.75rem 0.4rem;
+  line-height: 1.4;
+}
+</style>

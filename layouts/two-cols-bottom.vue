@@ -9,7 +9,7 @@ const slots = useSlots()
   <div class="slidev-layout w-full h-full grid grid-cols-2"
        :class="slots.title ? 'rows-title-main-bottom' : 'rows-main-bottom'">
     <GolBackground />
-    <div v-if="slots.title" class="col-span-full slide-cell border-b border-theme pb-4">
+    <div v-if="slots.title" class="col-span-full slide-cell">
       <slot name="title" />
     </div>
     <div class="slide-cell">
@@ -18,7 +18,7 @@ const slots = useSlots()
     <div class="slide-cell">
       <slot name="right" />
     </div>
-    <div class="slide-cell col-span-full border-t border-theme pt-3 flex items-center justify-center">
+    <div class="slide-cell col-span-full flex items-center justify-center">
       <slot name="bottom" />
     </div>
   </div>
