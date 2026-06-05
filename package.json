@@ -1,6 +1,6 @@
 {
   "name": "slidev-theme-pixel",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "type": "module",
   "description": "A stark, pixel-driven Slidev theme · black and white, monospace, pixel grid on every slide.",
   "keywords": [
@@ -19,6 +19,7 @@
   "files": [
     "layouts",
     "components",
+    "composables",
     "styles",
     "setup",
     "public"
