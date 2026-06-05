@@ -19,8 +19,6 @@ Toggle dark mode with the `D` key. All layouts support dark mode via CSS variabl
 
 ## Installation
 
-Add to your presentation frontmatter:
-
 ```yaml
 ---
 theme: pixel
@@ -50,19 +48,16 @@ layout: cover
 ---
 ```
 
-### Frontmatter fields
-
-| Field | Type | Description |
-|---|---|---|
-| `title` | `string` | Course title · `h1` on cover |
-| `subtitle` | `string` | Subtitle below the title |
-| `author` | `string` | Author name |
-| `email` | `string` | Author email · rendered as `mailto:` link |
-| `github` | `string` | GitHub URL · shown as repo link |
-| `breadcrumb` | `string` | Short label in bottom breadcrumb (all slides) |
-| `logos` | `string[] \| LogoItem[]` | One or two logos · top-left / top-right |
-| `logo` | `string` | Single logo alias |
-| `license` | `string` | License URL · defaults to CC BY 4.0 |
+| Field | Description |
+|---|---|
+| `title` | Course title · `h1` on cover |
+| `subtitle` | Subtitle below the title |
+| `author` | Author name |
+| `email` | Author email · rendered as `mailto:` link |
+| `github` | GitHub URL · shown as repo link |
+| `breadcrumb` | Short label in bottom breadcrumb (all slides) |
+| `logos` | One or two logos · top-left / top-right |
+| `license` | License URL · defaults to CC BY 4.0 |
 
 ---
 
@@ -71,6 +66,8 @@ layout: cover
 ### `section`
 
 <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/section.png" width="60%" />
+
+Inverts the current color mode (dark background in light mode, light in dark mode). Animated pixel grid overlay.
 
 ```md
 ---
@@ -106,13 +103,80 @@ Short sentences. One idea per bullet.
 layout: two-cols
 ---
 
+::title::
 # Title
+
+::left::
 
 Left column content.
 
 ::right::
 
 Right column content.
+```
+
+### `two-cols-bottom`
+
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/two-cols-bottom.png" width="60%" />
+
+Two columns with a full-width zone below.
+
+```md
+---
+layout: two-cols-bottom
+---
+
+::title::
+# Title
+
+::left::
+
+Left column.
+
+::right::
+
+Right column.
+
+::bottom::
+
+Full-width content below both columns.
+```
+
+### `grid`
+
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/mosaic.png" width="60%" />
+
+CSS grid layout. `cols` sets the number of columns. Prose elements (`h1`–`h3`, `p`, `pre`, `blockquote`) span all columns automatically — only components (`<Figure>`, `<Card>`, …) become grid items. To place text in a single cell, wrap it in a `<div>`.
+
+```md
+---
+layout: grid
+cols: 3
+---
+
+# Title
+
+<Figure src="/img/photo.jpg" caption="Author, <em>Title</em> (Year)" />
+<Figure src="/img/photo2.jpg" caption="Author, <em>Title</em> (Year)" />
+<Figure src="/img/photo3.jpg" caption="Author, <em>Title</em> (Year)" />
+```
+
+```md
+<div>Text in the first cell.</div>
+<Figure src="/img/photo.jpg" caption="..." />
+<Figure src="/img/photo2.jpg" caption="..." />
+```
+
+Add `variant: book` for book covers (fixed height · object-fit contain · drop shadow):
+
+```md
+---
+layout: grid
+cols: 4
+variant: book
+---
+
+<Figure src="/img/cover.jpg" alt="Book title" caption="Author, <em>Title</em> (Year)" />
 ```
 
 ### `image-right`
@@ -132,7 +196,25 @@ caption: "Author, <em>Title</em> (Year)"
 Text on the left.
 ```
 
-`backgroundSize` accepts `contain` (default) or `cover`. The `caption` prop also accepts a `::caption::` named slot for richer markup.
+`backgroundSize` accepts `contain` (default) or `cover`.
+
+### `image`
+
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/image.png" width="60%" />
+
+Full-bleed image with an optional caption overlay.
+
+```md
+---
+layout: image
+image: /images/photo.jpg
+---
+
+<div class="image-caption">
+  <strong>Image title</strong><br>
+  Author · Year
+</div>
+```
 
 ### `fact`
 
@@ -148,63 +230,55 @@ layout: fact
 **1 in 5** data visualisations contains a misleading element.
 ```
 
-### `four-cells`
-
-<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/four-cells.png" width="60%" />
-
-2×2 grid: description + live result (top row) · two code columns (bottom row). Designed for side-by-side code comparisons.
-
-```md
----
-layout: four-cells
----
-
-# Title
-
-Description or context.
-
-::result::
-
-<!-- live SVG, HTML, or canvas result -->
-
-::left::
-
-\`\`\`js
-// Vanilla JS
-\`\`\`
-
-::right::
-
-\`\`\`js
-// D3
-\`\`\`
-```
-
-### `two-cols-bottom`
-
-<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/two-cols-bottom.png" width="60%" />
-
-Two columns on top, full-width zone below both.
-
-```md
----
-layout: two-cols-bottom
----
-
-Left column content.
-
-::right::
-
-Right column content.
-
-::bottom::
-
-Full-width content below both columns.
-```
-
 ---
 
 ## Components
+
+### `<Figure>`
+
+Image with optional caption and link. Use inside `layout: grid` or standalone.
+
+```md
+<Figure
+  src="/img/photo.jpg"
+  caption="Author · <em>Title</em> (Year)"
+  href="https://..."
+/>
+```
+
+`href` is optional. `caption` accepts inline HTML (`<em>`, `<a>`).
+
+### `<Card>`
+
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/card.png" width="60%" />
+
+Use inside `layout: grid`.
+
+```md
+---
+layout: grid
+cols: 3
+---
+
+<Card tag="Tag" title="Title">Body text.</Card>
+<Card tag="Tag" title="Title" footer="Footer">Body text.</Card>
+```
+
+| Prop | Description |
+|---|---|
+| `tag` | Small label above the title |
+| `title` | Card title |
+| `footer` | Optional footer line |
+| `color` | Accent color for dots and tag · any CSS color value |
+
+Use `color` to replace callouts — the dots and tag reflect the semantic meaning:
+
+```md
+<Card color="#6b7280" tag="note" title="Note">Neutral information.</Card>
+<Card color="#16a34a" tag="tip" title="Tip">Positive advice.</Card>
+<Card color="#d97706" tag="warning" title="Warning">Something to verify.</Card>
+<Card color="#e92528" tag="danger" title="Danger">Critical mistake to avoid.</Card>
+```
 
 ### `<PhotoWall>`
 
@@ -229,68 +303,11 @@ Full-screen photo grid · always dark · automatic layout based on image count.
 | 5–6 | 3-column grid · random spans |
 | 7–9 | 4-column grid · random spans |
 
-`href` is optional. `caption` accepts inline HTML.
-
 ---
 
-## Components
+## Sources
 
-### `<Card>`
-
-<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/card.png" width="60%" />
-
-```md
-<div class="cards cards-3">
-  <Card tag="Tag" title="Title">Body text.</Card>
-  <Card tag="Tag" title="Title">Body text.</Card>
-  <Card tag="Tag" title="Title">Body text.</Card>
-</div>
-```
-
-Grid variants: `cards-2`, `cards-3`, `cards-4`.
-
-### `<Callout>`
-
-<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/callout.png" width="60%" />
-
-```md
-<Callout type="note">Neutral information or aside.</Callout>
-<Callout type="tip">Positive advice or best practice.</Callout>
-<Callout type="warning">Caution · something to verify carefully.</Callout>
-<Callout type="danger">Critical · a common mistake or something that must not be done.</Callout>
-```
-
-Color shades (background, border, header) are derived automatically from the type color via `color-mix()`. Dark mode is handled automatically.
-
-### Image mosaics
-
-<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/mosaic.png" width="60%" />
-
-```html
-<div class="mosaic-3">
-  <figure>
-    <img src="..." />
-    <figcaption>Author, <em>Title</em> (Year)</figcaption>
-  </figure>
-</div>
-```
-
-Grid variants: `mosaic-2`, `mosaic-3`, `mosaic-4`, `mosaic-5`, `mosaic-6`.
-
-Book covers (fixed height · object-fit contain · drop shadow):
-
-```html
-<div class="mosaic-4 book">
-  <figure>
-    <img src="..." alt="Book title" />
-    <figcaption>Author, <em>Title</em> (Year)</figcaption>
-  </figure>
-</div>
-```
-
-### Source
-
-Vertical · top-right · for slides with code or no image:
+Vertical source · top-right · for slides with code or no image:
 
 ```html
 <div class="footer">Source · Author, <em>Title</em> (Year) · <a href="...">link</a></div>
@@ -300,7 +317,7 @@ Vertical · top-right · for slides with code or no image:
 
 ## Icons
 
-This theme uses [PixelArtIcons](https://pixelarticons.com/) · a pixel-grid icon set that matches the theme aesthetic.
+This theme includes [Pixelify Icons](https://github.com/halfmage/pixelarticons) — 816 free pixel-art icons that match the theme aesthetic.
 
 ```bash
 npm install @iconify-json/pixelarticons
@@ -312,10 +329,9 @@ npm install @iconify-json/pixelarticons
 <pixelarticons-chart class="text-3xl" />
 ```
 
-Any Iconify collection works — browse at [icones.js.org](https://icones.js.org). The prefix matches the collection ID (e.g. `mdi-github` for Material Design Icons).
+Browse all icons at [icones.js.org](https://icones.js.org) (collection: `pixelarticons`). Any Iconify collection works — the prefix matches the collection ID (e.g. `mdi-github` for Material Design Icons).
 
 ---
-
 
 ## Development
 
