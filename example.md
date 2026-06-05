@@ -8,7 +8,6 @@ github: "https://github.com/example/repo"
 logos:
   - /images/logo-a.svg
   - /images/logo-b.svg
-breadcrumb: "course"
 mdc: true
 layout: cover
 ---
@@ -48,13 +47,11 @@ image: https://picsum.photos/1600/900?grayscale
 caption: "<strong>Image title</strong><br>Author · Year"
 ---
 
-# Image full
-
 ---
 layout: fact
 ---
 
-**tremate tremate** le streghe son tornate
+**tremate tremate**, le streghe son tornate
 
 ---
 layout: grid
@@ -120,14 +117,17 @@ layout: two-cols
 <Figure src="https://picsum.photos/600/400?random=5&grayscale" caption="Author · <em>Title</em> (Year)" />
 
 ---
-
-<!-- Photowall slide -->
-<PhotoWall :images="[
-  { src: 'https://picsum.photos/600/900?random=20&grayscale', caption: 'Author · <em>Title</em> (Year)' },
-  { src: 'https://picsum.photos/600/900?random=21&grayscale', caption: 'Author · <em>Title</em> (Year)' },
-  { src: 'https://picsum.photos/900/500?random=22&grayscale', caption: 'Author · <em>Title</em> (Year)' },
-  { src: 'https://picsum.photos/900/500?random=23&grayscale', caption: 'Author · <em>Title</em> (Year)' },
-]" />
+layout: photowall
+images:
+  - src: "https://picsum.photos/600/900?random=20&grayscale"
+    caption: "Author · <em>Title</em> (Year)"
+  - src: "https://picsum.photos/600/900?random=21&grayscale"
+    caption: "Author · <em>Title</em> (Year)"
+  - src: "https://picsum.photos/900/500?random=22&grayscale"
+    caption: "Author · <em>Title</em> (Year)"
+  - src: "https://picsum.photos/900/500?random=23&grayscale"
+    caption: "Author · <em>Title</em> (Year)"
+---
 
 ---
 layout: section
@@ -167,7 +167,7 @@ npm install @iconify-json/pixelarticons
 
 ::right::
 
-<div class="flex flex-wrap gap-4 items-center" style="font-size: 2rem">
+<div class="flex flex-wrap gap-4 items-center text-4xl">
   <pixelarticons-star />
   <pixelarticons-heart />
   <pixelarticons-home />

@@ -34,7 +34,6 @@ subtitle: "Course subtitle"
 author: "Firstname Lastname"
 email: "firstname.lastname@example.com"
 github: "https://github.com/example/repo"
-breadcrumb: "short label"
 logos:
   - /images/logo-a.svg
   - src: /images/logo-b.svg
@@ -206,27 +205,24 @@ Text on the left.
 
 ---
 
-### Full-bleed image `image`
+### Full-bleed image `image-full`
 
-- Add `image` in the layout field.
+- Add `image-full` in the layout field.
 - Add the image URL in the `image` field.
-- Use `.image-caption` for an overlay caption.
+- Add an optional `caption` prop (HTML inline supported) and `href` to make it a link.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/image.png" width="49%" />
-  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/image-dark.png" width="49%" />
+  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/image-full.png" width="49%" />
+  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/image-full-dark.png" width="49%" />
 </p>
 
 ```
 ---
-layout: image
+layout: image-full
 image: /images/photo.jpg
+caption: "<strong>Image title</strong><br>Author · Year"
+href: "https://..."
 ---
-
-<div class="image-caption">
-  <strong>Image title</strong><br>
-  Author · Year
-</div>
 ```
 
 ---
@@ -247,6 +243,45 @@ layout: fact
 
 **1 in 5** data visualisations contains a misleading element.
 ```
+
+---
+
+### Photo wall `photowall`
+
+Full-screen photo grid. Always dark. Automatic layout based on image count. Images defined in frontmatter YAML.
+
+- `images` · array of `{ src, caption?, href? }`
+- `caption` · accepts inline HTML
+- `href` · optional, makes the image a link
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/photowall.png" width="49%" />
+  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/photowall-dark.png" width="49%" />
+</p>
+
+```
+---
+layout: photowall
+images:
+  - src: "/images/photo.jpg"
+    caption: "Author · <em>Title</em> (Year)"
+    href: "https://..."
+  - src: "/images/photo2.jpg"
+    caption: "Author · <em>Title</em> (Year)"
+  - src: "/images/photo3.jpg"
+    caption: "Author · <em>Title</em> (Year)"
+  - src: "/images/photo4.jpg"
+    caption: "Author · <em>Title</em> (Year)"
+---
+```
+
+| Count | Layout |
+|---|---|
+| 2 | Side by side |
+| 3 | Equal thirds |
+| 4 | Two tall left · two stacked right |
+| 5-6 | 3-column grid · random spans |
+| 7-9 | 4-column grid · random spans |
 
 ---
 
@@ -282,10 +317,10 @@ Image with optional caption and link. Use inside `layout: grid` or standalone.
 
 Terminal-style card with a header bar (three dots + tag). Use inside `layout: grid`.
 
-- `tag` · small label in the header
-- `title` · card title
-- `footer` · optional footer line
-- `color` · CSS color, tints dots, tag, border, and header
+- `tag` : small label in the header
+- `title` : card title
+- `footer` : optional footer line
+- `color` : CSS color, tints dots, tag, border, and header
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/card.png" width="49%" />
@@ -313,41 +348,9 @@ Use `color` to replace callout-style admonitions:
 
 ---
 
-### `<PhotoWall>`
-
-Full-screen photo grid. Always dark. Automatic layout based on image count.
-
-- `images` · array of `{ src, caption?, href? }`
-- `caption` · accepts inline HTML
-- `href` · optional, makes the image a link
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/photowall.png" width="49%" />
-  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/photowall-dark.png" width="49%" />
-</p>
-
-```
-<PhotoWall :images="[
-  { src: '/images/photo.jpg', caption: 'Author · <em>Title</em> (Year)', href: 'https://...' },
-  { src: '/images/photo2.jpg', caption: 'Author · <em>Title</em> (Year)' },
-  { src: '/images/photo3.jpg', caption: 'Author · <em>Title</em> (Year)' },
-  { src: '/images/photo4.jpg', caption: 'Author · <em>Title</em> (Year)' },
-]" />
-```
-
-| Count | Layout |
-|---|---|
-| 2 | Side by side |
-| 3 | Equal thirds |
-| 4 | Two tall left · two stacked right |
-| 5-6 | 3-column grid · random spans |
-| 7-9 | 4-column grid · random spans |
-
----
-
 ## Icons
 
-This theme includes [Pixelify Icons](https://github.com/halfmage/pixelarticons) · 816 free pixel-art icons.
+This theme includes [Pixelify Icons](https://github.com/halfmage/pixelarticons) : 816 free pixel-art icons.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/icons.png" width="49%" />
@@ -363,7 +366,7 @@ npm install @iconify-json/pixelarticons
 <pixelarticons-arrow-right class="text-2xl" />
 ```
 
-Browse all icons at [icones.js.org](https://icones.js.org) (collection: `pixelarticons`). Any Iconify collection works · the prefix matches the collection ID.
+Browse all icons at [icones.js.org](https://icones.js.org) (collection: `pixelarticons`).
 
 ---
 
