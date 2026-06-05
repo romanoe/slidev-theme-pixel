@@ -30,6 +30,9 @@
   },
   "scripts": {
     "dev": "slidev example.md",
+    "patch": "npm version patch",
+    "minor": "npm version minor",
+    "major": "npm version major",
     "version": "git add -A"
   },
   "dependencies": {
