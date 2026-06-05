@@ -117,8 +117,6 @@ Right column content.
 
 ### `two-cols-bottom`
 
-<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/two-cols-bottom.png" width="60%" />
-
 Two columns with a full-width zone below.
 
 ```md
@@ -144,7 +142,7 @@ Full-width content below both columns.
 
 ### `grid`
 
-<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/mosaic.png" width="60%" />
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/grid.png" width="60%" />
 
 CSS grid layout. `cols` sets the number of columns. Prose elements (`h1`–`h3`, `p`, `pre`, `blockquote`) span all columns automatically — only components (`<Figure>`, `<Card>`, …) become grid items. To place text in a single cell, wrap it in a `<div>`.
 
@@ -236,6 +234,8 @@ layout: fact
 
 ### `<Figure>`
 
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/figure.png" width="60%" />
+
 Image with optional caption and link. Use inside `layout: grid` or standalone.
 
 ```md
@@ -316,6 +316,8 @@ Vertical source · top-right · for slides with code or no image:
 ---
 
 ## Icons
+
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/icons.png" width="60%" />
 
 This theme includes [Pixelify Icons](https://github.com/halfmage/pixelarticons) — 816 free pixel-art icons that match the theme aesthetic.
 
