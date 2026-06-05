@@ -8,7 +8,6 @@ export default defineConfig({
 
     // Dynamic mosaic shortcuts — mosaic-2, mosaic-3, mosaic-4…
     [/^mosaic-(\d+)$/, ([, n]) => `grid grid-cols-${n} gap-2`],
-    ['mosaic', 'grid gap-2'],
 
     // Base cell for multi-zone layouts
     ['slide-cell', 'min-h-0 overflow-hidden'],

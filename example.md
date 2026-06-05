@@ -148,7 +148,7 @@ image: https://picsum.photos/1600/900
 
 # Image mosaic
 
-<div class="mosaic mosaic-3">
+<div class="mosaic-3">
   <figure>
     <img src="https://picsum.photos/400/300?random=1" />
     <figcaption>Author, <em>Title</em> (Year)</figcaption>
@@ -167,7 +167,7 @@ image: https://picsum.photos/1600/900
 
 # Book mosaic
 
-<div class="mosaic mosaic-4 mosaic-books">
+<div class="mosaic-4 book">
   <figure>
     <img src="https://picsum.photos/200/300?random=10" alt="Book cover" />
     <figcaption>Author, <em>Book Title</em> (Year)</figcaption>
@@ -260,7 +260,7 @@ console.log(result) // [6, 8, 10]
 
 ::bottom::
 
-<div class="note-box">Bottom zone · full width · shared result, figure, or note spanning both columns.</div>
+<Callout type="note">Bottom zone · full width · shared result, figure, or note spanning both columns.</Callout>
 
 ---
 layout: default
