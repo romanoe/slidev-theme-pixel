@@ -43,14 +43,12 @@ caption: "Author, <em>Title</em> (Year)"
 `backgroundSize: contain` or `cover`. Caption via `caption:` frontmatter prop.
 
 ---
-layout: image
+layout: image-full
 image: https://picsum.photos/1600/900?grayscale
+caption: "<strong>Image title</strong><br>Author · Year"
 ---
 
-<div class="image-caption">
-  <strong>Image title</strong><br>
-  Author · Year
-</div>
+# Image full
 
 ---
 layout: fact
@@ -123,6 +121,7 @@ layout: two-cols
 
 ---
 
+<!-- Photowall slide -->
 <PhotoWall :images="[
   { src: 'https://picsum.photos/600/900?random=20&grayscale', caption: 'Author · <em>Title</em> (Year)' },
   { src: 'https://picsum.photos/600/900?random=21&grayscale', caption: 'Author · <em>Title</em> (Year)' },

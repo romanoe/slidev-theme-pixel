@@ -2,7 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/slidev-theme-pixel?color=000&label=)](https://www.npmjs.com/package/slidev-theme-pixel) [![MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-A stark, pixel-driven theme for [Slidev](https://github.com/slidevjs/slidev). Black and white. Monospace. Every slide carries a pixel grid · subtle, structural, always present.
+A stark, pixel-driven theme for [Slidev](https://github.com/slidevjs/slidev). Black and white. Monospace. Every slide carries a random pixel grid (unique every load and refresh !)
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/cover.png" width="49%" />
