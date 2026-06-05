@@ -27,7 +27,8 @@
   },
   "devDependencies": {
     "@iconify-json/pixelarticons": "^1.2.6",
-    "@slidev/cli": "^52.16.0"
+    "@slidev/cli": "^52.16.0",
+    "playwright-chromium": "^1.60.0"
   },
   "slidev": {
     "colorSchema": "both",

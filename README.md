@@ -5,19 +5,15 @@
 A stark, pixel-driven Slidev theme. Black and white. Monospace. Every slide carries a pixel grid · subtle, structural, always present.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/01-cover.png" width="49%" />
-  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/02-section.png" width="49%" />
+  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/cover.png" width="49%" />
+  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/section.png" width="49%" />
 </p>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/07-img-right.png" width="49%" />
-  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/12-masonry.png" width="49%" />
+  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/image-right.png" width="49%" />
+  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/photowall.png" width="49%" />
 </p>
 
-### Light · Dark
-
-| light theme | dark theme |
-|---|---|
-| <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/01-cover.png" height="220" /> | <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/01-cover-dm.png" height="220" /> |
+Toggle dark mode with the `D` key. All layouts support dark mode via CSS variables.
 
 ---
 
@@ -74,7 +70,7 @@ layout: cover
 
 ### `section`
 
-<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/02-section.png" width="60%" />
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/section.png" width="60%" />
 
 ```md
 ---
@@ -88,7 +84,7 @@ _Subtitle line_
 
 ### `default`
 
-<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/03-default.png" width="60%" />
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/default.png" width="60%" />
 
 ```md
 # Slide title
@@ -103,7 +99,7 @@ Short sentences. One idea per bullet.
 
 ### `two-cols`
 
-<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/06-two-cols.png" width="60%" />
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/two-cols.png" width="60%" />
 
 ```md
 ---
@@ -121,7 +117,7 @@ Right column content.
 
 ### `image-right`
 
-<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/07-img-right.png" width="60%" />
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/image-right.png" width="60%" />
 
 ```md
 ---
@@ -140,7 +136,7 @@ Text on the left.
 
 ### `fact`
 
-<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/13-fact.png" width="60%" />
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/fact.png" width="60%" />
 
 A single bold statement, vertically centered.
 
@@ -154,7 +150,7 @@ layout: fact
 
 ### `four-cells`
 
-<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/14-four-cells.png" width="60%" />
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/four-cells.png" width="60%" />
 
 2×2 grid: description + live result (top row) · two code columns (bottom row). Designed for side-by-side code comparisons.
 
@@ -186,7 +182,7 @@ Description or context.
 
 ### `two-cols-bottom`
 
-<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/15-two-cols-bottom.png" width="60%" />
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/two-cols-bottom.png" width="60%" />
 
 Two columns on top, full-width zone below both.
 
@@ -212,7 +208,7 @@ Full-width content below both columns.
 
 ### `<PhotoWall>`
 
-<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/12-masonry.png" width="60%" />
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/photowall.png" width="60%" />
 
 Full-screen photo grid · always dark · automatic layout based on image count.
 
@@ -237,40 +233,41 @@ Full-screen photo grid · always dark · automatic layout based on image count.
 
 ---
 
-## Utility classes
+## Components
 
-### Admonitions
+### `<Card>`
 
-<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/09-callout-cards.png" width="60%" />
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/card.png" width="60%" />
 
-```html
-<div class="note-box">Neutral information or aside.</div>
-<div class="tip-box">Positive advice or best practice.</div>
-<div class="warning-box">Caution · something to verify carefully.</div>
-<div class="danger-box">Critical · a common mistake or something that must not be done.</div>
-```
-
-### Cards
-
-<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/09-callout-cards.png" width="60%" />
-
-```html
+```md
 <div class="cards cards-3">
-  <div class="card">
-    <span class="card-tag">Tag</span>
-    <p class="card-title">Title</p>
-    <p class="card-body">Short description of the item.</p>
-    <div class="card-footer">footer text</div>
-  </div>
+  <Card tag="Tag" title="Title">Body text.</Card>
+  <Card tag="Tag" title="Title">Body text.</Card>
+  <Card tag="Tag" title="Title">Body text.</Card>
 </div>
 ```
 
-Grid variants: `cards-2`, `cards-3`, `cards-4`. Single centered card: add `card-solo`.
+Grid variants: `cards-2`, `cards-3`, `cards-4`.
+
+### `<Callout>`
+
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/callout.png" width="60%" />
+
+```md
+<Callout type="note">Neutral information or aside.</Callout>
+<Callout type="tip">Positive advice or best practice.</Callout>
+<Callout type="warning">Caution · something to verify carefully.</Callout>
+<Callout type="danger">Critical · a common mistake or something that must not be done.</Callout>
+```
+
+Color shades (background, border, header) are derived automatically from the type color via `color-mix()`. Dark mode is handled automatically.
 
 ### Image mosaics
 
+<img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/mosaic.png" width="60%" />
+
 ```html
-<div class="mosaic mosaic-3">
+<div class="mosaic-3">
   <figure>
     <img src="..." />
     <figcaption>Author, <em>Title</em> (Year)</figcaption>
@@ -278,12 +275,12 @@ Grid variants: `cards-2`, `cards-3`, `cards-4`. Single centered card: add `card-
 </div>
 ```
 
-Grid variants: `mosaic-2`, `mosaic-3`, `mosaic-4`.
+Grid variants: `mosaic-2`, `mosaic-3`, `mosaic-4`, `mosaic-5`, `mosaic-6`.
 
 Book covers (fixed height · object-fit contain · drop shadow):
 
 ```html
-<div class="mosaic mosaic-4 mosaic-books">
+<div class="mosaic-4 book">
   <figure>
     <img src="..." alt="Book title" />
     <figcaption>Author, <em>Title</em> (Year)</figcaption>
@@ -291,35 +288,13 @@ Book covers (fixed height · object-fit contain · drop shadow):
 </div>
 ```
 
-### Sources
+### Source
 
 Vertical · top-right · for slides with code or no image:
 
 ```html
 <div class="footer">Source · Author, <em>Title</em> (Year) · <a href="...">link</a></div>
 ```
-
-Horizontal · below content · for slides with images:
-
-```html
-<div class="source">Source · Author, <em>Title</em> (Year) · <a href="...">link</a></div>
-```
-
-### Image height utilities
-
-| Class | Height |
-|---|---|
-| `.h-img-sm` | 160px |
-| `.h-img-md` | 220px |
-| `.h-img-lg` | 300px |
-
-### Typography utilities
-
-| Class | Effect |
-|---|---|
-| `.mono` | Force monospace font |
-| `.text-muted` | Muted color |
-| `.bg-light` | Light grey background |
 
 ---
 
@@ -341,11 +316,6 @@ Any Iconify collection works — browse at [icones.js.org](https://icones.js.org
 
 ---
 
-## Dark mode
-
-Toggle with the `D` key during presentation. All layouts support dark mode via CSS variables.
-
----
 
 ## Development
 
