@@ -28,7 +28,8 @@
     "slidev": ">=0.52.0"
   },
   "scripts": {
-    "dev": "slidev example.md"
+    "dev": "slidev example.md",
+    "version": "git add -A"
   },
   "dependencies": {
     "@slidev/types": "^52.16.0"
