@@ -21,7 +21,6 @@ const show = computed(() =>
 
 const courseLabel = computed(() => {
   const fm = (slides.value?.[0]?.meta?.slide as any)?.frontmatter ?? {}
-  if (fm.breadcrumb) return fm.breadcrumb
   const raw = fm.title ?? ''
   return raw.replace(/^"(.*)"$/, '$1').toLowerCase().replace(/^(\d+)[.\s-]+/, '').replace(/"/g, '').trim()
 })
