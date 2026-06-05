@@ -17,13 +17,11 @@ layout: cover
 layout: section
 ---
 
-# Section title
-
-_subtitle line_
+# Layouts
 
 ---
 
-# Default slide
+# Default
 
 Short, active sentences. One idea per bullet.
 
@@ -32,60 +30,6 @@ Short, active sentences. One idea per bullet.
 - Third point
 
 <div class="footer">Source · Author, <em>Title</em> (Year)</div>
-
----
-
-# Table
-
-| Column A | Column B | Column C |
-|---|---|---|
-| Row 1 | Value | Description of the item |
-| Row 2 | Value | Description of the item |
-| Row 3 | Value | Description of the item |
-
----
-
-# Cards
-
- ```html
-  <div class="card">
-    <span class="card-tag">Tool</span>
-    <p class="card-title">D3.js</p>
-    <p class="card-body">Data-driven DOM manipulation. Scales, axes, layouts, projections.</p>
-  </div>
-  ```
-
-<div class="cards cards-3">
-  <Card tag="Concept" title="Perception">How readers decode visual variables · position, size, colour, shape.</Card>
-  <Card tag="Tool" title="D3.js">Data-driven DOM manipulation. Scales, axes, layouts, projections.</Card>
-  <Card tag="Method" title="Scrollytelling">Narrative driven by scroll position. Scrollama + IntersectionObserver.</Card>
-</div>
-
----
-
-# Icons
-
-Install: `npm install @iconify-json/pixelarticons`
-
-Use directly as a component, no import needed:
-
-```md
-<pixelarticons-star />
-<pixelarticons-arrow-right class="text-2xl" />
-<pixelarticons-warning-box class="text-xl" />
-```
-
-<div class="cards cards-3" style="margin-top:1.5rem">
-  <Card title="pixelarticons-arrow-right">
-    <pixelarticons-arrow-right class="text-3xl" />
-  </Card>
-  <Card title="pixelarticons-chart">
-    <pixelarticons-chart class="text-3xl" />
-  </Card>
-  <Card title="pixelarticons-map">
-    <pixelarticons-map class="text-3xl" />
-  </Card>
-</div>
 
 ---
 layout: two-cols
@@ -113,93 +57,34 @@ console.log(result) // [6, 8, 10]
 ```
 
 ---
-layout: image-right
-image: https://picsum.photos/800/600
-backgroundSize: contain
-caption: "Author, <em>Title</em> (Year)"
+layout: two-cols-bottom
 ---
 
-# Image right
+::title::
+# Two cols + bottom
 
-Text left, image right with `backgroundSize: contain`.
+::left::
+Left column · context, definitions, narrative.
 
----
-layout: image
-image: https://picsum.photos/1600/900
----
+- Point A
+- Point B
+- Point C
 
-<div class="image-caption">
-  <strong>Image Title</strong><br>
-  Author · Year
-</div>
+::right::
 
+```javascript
+const data = [1, 2, 3, 4, 5]
 
----
+const result = data
+  .filter(d => d > 2)
+  .map(d => d * 2)
 
-# Callouts
+console.log(result) // [6, 8, 10]
+```
 
-<Callout type="note">Neutral information or aside.</Callout>
-<Callout type="tip">Positive advice or best practice.</Callout>
-<Callout type="warning">Caution · something to verify carefully.</Callout>
-<Callout type="danger">Critical · a common mistake or something that must not be done.</Callout>
+::bottom::
 
----
-
-# Image mosaic
-
-<div class="mosaic-3">
-  <figure>
-    <img src="https://picsum.photos/400/300?random=1" />
-    <figcaption>Author, <em>Title</em> (Year)</figcaption>
-  </figure>
-  <figure>
-    <img src="https://picsum.photos/400/300?random=2" />
-    <figcaption>Author, <em>Title</em> (Year)</figcaption>
-  </figure>
-  <figure>
-    <img src="https://picsum.photos/400/300?random=3" />
-    <figcaption>Author, <em>Title</em> (Year)</figcaption>
-  </figure>
-</div>
-
----
-
-# Book mosaic
-
-<div class="mosaic-4 book">
-  <figure>
-    <img src="https://picsum.photos/200/300?random=10" alt="Book cover" />
-    <figcaption>Author, <em>Book Title</em> (Year)</figcaption>
-  </figure>
-  <figure>
-    <img src="https://picsum.photos/200/300?random=11" alt="Book cover" />
-    <figcaption>Author, <em>Book Title</em> (Year)</figcaption>
-  </figure>
-  <figure>
-    <img src="https://picsum.photos/200/300?random=12" alt="Book cover" />
-    <figcaption>Author, <em>Book Title</em> (Year)</figcaption>
-  </figure>
-  <figure>
-    <img src="https://picsum.photos/200/300?random=13" alt="Book cover" />
-    <figcaption>Author, <em>Book Title</em> (Year)</figcaption>
-  </figure>
-</div>
-
----
-
-<PhotoWall :images="[
-  { src: 'https://picsum.photos/600/900?random=20', caption: 'Author · <em>Title</em> (Year)' },
-  { src: 'https://picsum.photos/600/900?random=21', caption: 'Author · <em>Title</em> (Year)' },
-  { src: 'https://picsum.photos/900/500?random=22', caption: 'Author · <em>Title</em> (Year)' },
-  { src: 'https://picsum.photos/900/500?random=23', caption: 'Author · <em>Title</em> (Year)' },
-]" />
-
-
----
-layout: fact
----
-
-**tremate tremate** le streghe son tornate
+<Callout type="note">Bottom zone · full width · shared result, figure, or note spanning both columns.</Callout>
 
 ---
 layout: four-cells
@@ -232,34 +117,154 @@ d3.selectAll('circle')
 ```
 
 ---
-layout: two-cols-bottom
+layout: image-right
+image: https://picsum.photos/800/600?grayscale
+backgroundSize: contain
+caption: "Author, <em>Title</em> (Year)"
 ---
 
-::title::
-# Two cols + bottom
+# Image right
 
-::left::
-Left column · context, definitions, narrative.
+Text left, image right with `backgroundSize: contain`.
 
-- Point A
-- Point B
-- Point C
+---
+layout: image
+image: https://picsum.photos/1600/900?grayscale
+---
 
-::right::
+<div class="image-caption">
+  <strong>Image Title</strong><br>
+  Author · Year
+</div>
 
-```javascript
-const data = [1, 2, 3, 4, 5]
+---
+layout: fact
+---
 
-const result = data
-  .filter(d => d > 2)
-  .map(d => d * 2)
+**tremate tremate** le streghe son tornate
 
-console.log(result) // [6, 8, 10]
+---
+layout: section
+---
+
+# Components
+
+---
+
+# Card
+
+```md
+<Card tag="Tag" title="Title">Body text.</Card>
 ```
 
-::bottom::
+<div class="cards cards-3" style="margin-top:1rem">
+  <Card tag="Concept" title="Perception">How readers decode visual variables · position, size, colour, shape.</Card>
+  <Card tag="Tool" title="D3.js">Data-driven DOM manipulation. Scales, axes, layouts, projections.</Card>
+  <Card tag="Method" title="Scrollytelling">Narrative driven by scroll position. Scrollama + IntersectionObserver.</Card>
+</div>
 
-<Callout type="note">Bottom zone · full width · shared result, figure, or note spanning both columns.</Callout>
+---
+
+# Callout
+
+```md
+<Callout type="note|tip|warning|danger">Text.</Callout>
+```
+
+<Callout type="note">Neutral information or aside.</Callout>
+<Callout type="tip">Positive advice or best practice.</Callout>
+<Callout type="warning">Caution · something to verify carefully.</Callout>
+<Callout type="danger">Critical · a common mistake or something that must not be done.</Callout>
+
+---
+
+<PhotoWall :images="[
+  { src: 'https://picsum.photos/600/900?random=20&grayscale', caption: 'Author · <em>Title</em> (Year)' },
+  { src: 'https://picsum.photos/600/900?random=21&grayscale', caption: 'Author · <em>Title</em> (Year)' },
+  { src: 'https://picsum.photos/900/500?random=22&grayscale', caption: 'Author · <em>Title</em> (Year)' },
+  { src: 'https://picsum.photos/900/500?random=23&grayscale', caption: 'Author · <em>Title</em> (Year)' },
+]" />
+
+---
+layout: section
+---
+
+# Fonctionnalités
+
+---
+
+# Table
+
+| Column A | Column B | Column C |
+|---|---|---|
+| Row 1 | Value | Description of the item |
+| Row 2 | Value | Description of the item |
+| Row 3 | Value | Description of the item |
+
+---
+
+# Icons
+
+Install: `npm install @iconify-json/pixelarticons`
+
+```md
+<pixelarticons-star />
+<pixelarticons-arrow-right class="text-2xl" />
+```
+
+<div class="cards cards-3" style="margin-top:1rem">
+  <Card title="pixelarticons-arrow-right">
+    <pixelarticons-arrow-right class="text-3xl" />
+  </Card>
+  <Card title="pixelarticons-chart">
+    <pixelarticons-chart class="text-3xl" />
+  </Card>
+  <Card title="pixelarticons-map">
+    <pixelarticons-map class="text-3xl" />
+  </Card>
+</div>
+
+---
+
+# Image mosaic
+
+<div class="mosaic-3">
+  <figure>
+    <img src="https://picsum.photos/400/300?random=1&grayscale" />
+    <figcaption>Author, <em>Title</em> (Year)</figcaption>
+  </figure>
+  <figure>
+    <img src="https://picsum.photos/400/300?random=2&grayscale" />
+    <figcaption>Author, <em>Title</em> (Year)</figcaption>
+  </figure>
+  <figure>
+    <img src="https://picsum.photos/400/300?random=3&grayscale" />
+    <figcaption>Author, <em>Title</em> (Year)</figcaption>
+  </figure>
+</div>
+
+---
+
+# Book mosaic
+
+<div class="mosaic-4 book">
+  <figure>
+    <img src="https://picsum.photos/200/300?random=10&grayscale" alt="Book cover" />
+    <figcaption>Author, <em>Book Title</em> (Year)</figcaption>
+  </figure>
+  <figure>
+    <img src="https://picsum.photos/200/300?random=11&grayscale" alt="Book cover" />
+    <figcaption>Author, <em>Book Title</em> (Year)</figcaption>
+  </figure>
+  <figure>
+    <img src="https://picsum.photos/200/300?random=12&grayscale" alt="Book cover" />
+    <figcaption>Author, <em>Book Title</em> (Year)</figcaption>
+  </figure>
+  <figure>
+    <img src="https://picsum.photos/200/300?random=13&grayscale" alt="Book cover" />
+    <figcaption>Author, <em>Book Title</em> (Year)</figcaption>
+  </figure>
+</div>
 
 ---
 layout: default
