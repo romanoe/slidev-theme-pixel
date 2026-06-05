@@ -325,20 +325,19 @@ Horizontal · below content · for slides with images:
 
 ## Icons
 
-Slidev uses `unplugin-icons` with Iconify. Install any collection and use it as a component, no import needed.
+This theme uses [PixelArtIcons](https://pixelarticons.com/) · a pixel-grid icon set that matches the theme aesthetic.
 
 ```bash
-npm install @iconify-json/ph   # Phosphor Icons (included)
-npm install @iconify-json/mdi  # Material Design Icons
+npm install @iconify-json/pixelarticons
 ```
 
 ```md
-<ph-star />
-<ph-arrow-right class="text-2xl" />
-<mdi-github />
+<pixelarticons-star />
+<pixelarticons-arrow-right class="text-2xl" />
+<pixelarticons-chart class="text-3xl" />
 ```
 
-Browse all icons at [icones.js.org](https://icones.js.org).
+Any Iconify collection works — browse at [icones.js.org](https://icones.js.org). The prefix matches the collection ID (e.g. `mdi-github` for Material Design Icons).
 
 ---
 

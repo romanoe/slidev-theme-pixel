@@ -65,27 +65,26 @@ Short, active sentences. One idea per bullet.
 
 # Icons
 
-Install a collection: `npm install @iconify-json/ph`
+Install: `npm install @iconify-json/pixelarticons`
 
-Then use directly as a component, no import needed:
+Use directly as a component, no import needed:
 
 ```md
-<ph-star />
-<ph-star class="text-2xl text-red-500" />
-<ph-arrow-right class="text-xl" />
+<pixelarticons-star />
+<pixelarticons-arrow-right class="text-2xl" />
+<pixelarticons-warning-box class="text-xl" />
 ```
 
-<div class="cards cards-2" style="margin-top:1.5rem">
-  <div class="card">
-    <ph-arrow-right class="text-3xl" />
-    <p class="card-title">ph-arrow-right</p>
-    <p class="card-body">Browse at <a href="https://icones.js.org">icones.js.org</a></p>
-  </div>
-  <div class="card">
-    <ph-warning class="text-3xl text-red-500" />
-    <p class="card-title">ph-warning</p>
-    <p class="card-body">Style with UnoCSS classes</p>
-  </div>
+<div class="cards cards-3" style="margin-top:1.5rem">
+  <Card title="pixelarticons-arrow-right">
+    <pixelarticons-arrow-right class="text-3xl" />
+  </Card>
+  <Card title="pixelarticons-chart">
+    <pixelarticons-chart class="text-3xl" />
+  </Card>
+  <Card title="pixelarticons-map">
+    <pixelarticons-map class="text-3xl" />
+  </Card>
 </div>
 
 ---

@@ -26,7 +26,7 @@
     "@slidev/types": "^52.16.0"
   },
   "devDependencies": {
-    "@iconify-json/ph": "*",
+    "@iconify-json/pixelarticons": "^1.2.6",
     "@slidev/cli": "^52.16.0"
   },
   "slidev": {
