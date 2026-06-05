@@ -95,6 +95,7 @@ layout: two-cols
 ::title::
 # Two columns
 
+::left::
 Left column · context, definitions.
 
 - Item A
@@ -238,6 +239,7 @@ layout: two-cols-bottom
 ::title::
 # Two cols + bottom
 
+::left::
 Left column · context, definitions, narrative.
 
 - Point A

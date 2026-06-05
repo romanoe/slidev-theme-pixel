@@ -13,7 +13,7 @@ const slots = useSlots()
       <slot name="title" />
     </div>
     <div class="slide-cell">
-      <slot />
+      <slot name="left" /><slot v-if="!slots.left" />
     </div>
     <div class="slide-cell">
       <slot name="right" />
