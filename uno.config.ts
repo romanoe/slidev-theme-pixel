@@ -1,8 +1,6 @@
-import { defineConfig, presetUno } from 'unocss'
+import { defineConfig } from 'unocss'
 
 export default defineConfig({
-  presets: [presetUno()],
-
   shortcuts: [
     // Dynamic grid shortcuts — cards-2, cards-3, cards-4…
     [/^cards-(\d+)$/, ([, n]) => `grid grid-cols-${n} gap-4 items-start`],
@@ -19,8 +17,11 @@ export default defineConfig({
   rules: [
     // Border using theme CSS variable
     ['border-theme', { 'border-color': 'var(--color-border)' }],
-    // grid-template-rows: 1fr auto (not in UnoCSS preset)
-    ['rows-main-bottom', { 'grid-template-rows': '1fr auto' }],
+    // Grid row templates (not in UnoCSS preset)
+    ['rows-main-bottom',        { 'grid-template-rows': '1fr auto' }],
+    ['rows-title-content',      { 'grid-template-rows': 'auto 1fr' }],
+    ['rows-title-2col',         { 'grid-template-rows': 'auto 1fr 1fr' }],
+    ['rows-title-main-bottom',  { 'grid-template-rows': 'auto 1fr auto' }],
   ],
 
   safelist: [

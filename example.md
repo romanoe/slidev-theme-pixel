@@ -92,6 +92,7 @@ Then use directly as a component, no import needed:
 layout: two-cols
 ---
 
+::title::
 # Two columns
 
 Left column · context, definitions.
@@ -204,6 +205,7 @@ layout: fact
 layout: four-cells
 ---
 
+::title::
 # Four cells
 
 Description · context · narrative.
@@ -233,6 +235,7 @@ d3.selectAll('circle')
 layout: two-cols-bottom
 ---
 
+::title::
 # Two cols + bottom
 
 Left column · context, definitions, narrative.
