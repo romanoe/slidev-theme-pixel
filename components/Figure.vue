@@ -8,35 +8,16 @@ defineProps<{
 </script>
 
 <template>
-  <figure>
+  <figure class="m-0 flex flex-col">
     <a v-if="href" :href="href" target="_blank" rel="noopener">
-      <img :src="src" :alt="alt ?? ''" />
+      <img :src="src" :alt="alt ?? ''" class="w-full block" />
     </a>
-    <img v-else :src="src" :alt="alt ?? ''" />
+    <img v-else :src="src" :alt="alt ?? ''" class="w-full block" />
     <figcaption v-if="caption" v-html="caption" />
   </figure>
 </template>
 
 <style scoped>
-figure {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-figure img {
-  width: 100%;
-  display: block;
-}
-
-figcaption {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  margin-top: 0.25rem;
-  line-height: 1.3;
-}
-
 figcaption :deep(a) {
   color: var(--text-muted);
   text-decoration: underline;

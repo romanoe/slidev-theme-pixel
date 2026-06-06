@@ -1,6 +1,6 @@
 {
   "name": "slidev-theme-pixel",
-  "version": "0.3.2",
+  "version": "0.1.0",
   "type": "module",
   "description": "A stark, pixel-driven Slidev theme · black and white, monospace, pixel grid on every slide.",
   "keywords": [
@@ -22,7 +22,6 @@
     "components",
     "composables",
     "styles",
-    "setup",
     "public"
   ],
   "engines": {
@@ -45,6 +44,9 @@
   },
   "slidev": {
     "colorSchema": "both",
+    "themeConfig": {
+      "primary": "#000000"
+    },
     "defaults": {
       "fonts": {
         "sans": "Plus Jakarta Sans",

@@ -1,5 +1,6 @@
 <template>
   <template v-if="show">
+    <div v-if="references" class="ref" v-html="references" />
     <div class="breadcrumb">
       {{ courseLabel }}<template v-if="sectionLabel"> / {{ sectionLabel }}</template>
     </div>
@@ -10,18 +11,34 @@
 </template>
 
 <script setup lang="ts">
-import { useNav } from '@slidev/client'
-import { computed } from 'vue'
+import { useNav, useDarkMode } from '@slidev/client'
+import { computed, watchEffect } from 'vue'
 
 const { currentSlideNo, currentLayout, slides } = useNav()
+const { isDark } = useDarkMode()
 
 const show = computed(() =>
   currentSlideNo.value > 1 && currentLayout.value !== 'end'
 )
 
+const rootFm = computed(() => (slides.value?.[0]?.meta?.slide as any)?.frontmatter ?? {})
+const currentFm = computed(() => (slides.value?.[currentSlideNo.value - 1]?.meta?.slide as any)?.frontmatter ?? {})
+
+watchEffect(() => {
+  const cfg = rootFm.value.themeConfig ?? {}
+  const dark = isDark.value
+  document.documentElement.style.setProperty('--text',         cfg.primary ?? (dark ? '#f0f0f0' : '#000000'))
+  document.documentElement.style.setProperty('--color-accent', cfg.accent  ?? '#e92528')
+})
+
+const references = computed(() => {
+  const val = currentFm.value.references
+  if (!val) return ''
+  return Array.isArray(val) ? val.join(' · ') : val
+})
+
 const courseLabel = computed(() => {
-  const fm = (slides.value?.[0]?.meta?.slide as any)?.frontmatter ?? {}
-  const raw = fm.title ?? ''
+  const raw = rootFm.value.title ?? ''
   return raw.replace(/^"(.*)"$/, '$1').toLowerCase().replace(/^(\d+)[.\s-]+/, '').replace(/"/g, '').trim()
 })
 

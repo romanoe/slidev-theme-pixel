@@ -9,16 +9,16 @@ defineProps<{
 
 <template>
   <div class="card" :style="color ? { '--card-color': color } : {}">
-    <div class="card-header" aria-hidden="true">
-      <span class="card-dots" />
-      <span v-if="tag" class="card-tag">{{ tag }}</span>
+    <div class="header flex items-center px-3 py-[0.35rem]" aria-hidden="true">
+      <span class="dots inline-block w-[0.4rem] h-[0.4rem] rounded-full shrink-0 mr-6" />
+      <span v-if="tag" class="tag mono uppercase tracking-[0.1em] text-[0.5rem]">{{ tag }}</span>
     </div>
-    <div class="card-content">
-      <p v-if="title" class="card-title">{{ title }}</p>
-      <div class="card-body">
+    <div class="flex flex-col gap-[0.35rem] p-4 flex-1">
+      <p v-if="title" class="title mono font-700 text-[0.9rem] leading-tight m-0 primary">{{ title }}</p>
+      <div class="body text-[0.8rem] flex-1 leading-relaxed">
         <slot />
       </div>
-      <div v-if="footer" class="card-footer">{{ footer }}</div>
+      <div v-if="footer" class="footer mono muted text-[0.65rem] pt-2">{{ footer }}</div>
     </div>
   </div>
 </template>
@@ -27,7 +27,7 @@ defineProps<{
 .card {
   --card-color: var(--text-muted);
   --_border: color-mix(in srgb, var(--card-color) 30%, var(--color-border));
-  --_header:  color-mix(in srgb, var(--card-color) 10%, var(--bg-subtle));
+  --_header: color-mix(in srgb, var(--card-color) 10%, var(--bg-subtle));
 
   display: flex;
   flex-direction: column;
@@ -37,65 +37,19 @@ defineProps<{
   border-radius: 4px;
   overflow: hidden;
   margin: 0.3rem;
-}
 
-.card-header {
-  display: flex;
-  align-items: center;
-  padding: 0.35rem 0.75rem;
-  background: var(--_header);
-  border-bottom: 1px solid var(--_border);
-}
+  .header {
+    background: var(--_header);
+    border-bottom: 1px solid var(--_border);
+  }
 
-.card-dots {
-  display: inline-block;
-  width: 0.4rem;
-  height: 0.4rem;
-  border-radius: 50%;
-  background: var(--card-color);
-  box-shadow: 0.6rem 0 0 var(--card-color), 1.2rem 0 0 var(--card-color);
-  flex-shrink: 0;
-  margin-right: 1.5rem;
-}
+  .dots {
+    background: var(--card-color);
+    box-shadow: 0.6rem 0 0 var(--card-color), 1.2rem 0 0 var(--card-color);
+  }
 
-.card-tag {
-  font-family: var(--font-mono);
-  font-size: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--card-color);
-}
-
-.card-content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  padding: 1rem;
-  flex: 1;
-}
-
-.card-title {
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--text);
-  line-height: 1.3;
-  margin: 0;
-}
-
-.card-body {
-  font-family: var(--font-sans);
-  font-size: 0.8rem;
-  flex: 1;
-  color: var(--text-subtle);
-  line-height: 1.6;
-}
-
-.card-footer {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  color: var(--text-muted);
-  padding-top: 0.5rem;
-  border-top: 1px solid var(--color-border);
+  .tag   { color: var(--card-color); }
+  .body  { color: color-mix(in srgb, var(--text-body) 55%, var(--bg)); }
+  .footer { border-top: 1px solid var(--color-border); }
 }
 </style>

@@ -22,8 +22,8 @@ const imgClass = computed(() =>
       <GolBackground />
       <slot />
     </div>
-    <div class="image-right-col">
-      <img v-if="image" :src="image" class="image-right-img" :class="imgClass" />
+    <div class="flex flex-col justify-center w-full h-full">
+      <img v-if="image" :src="image" class="w-full max-h-[90vh]" :class="imgClass" />
       <figcaption v-if="slots.caption || caption" class="px-3 pt-1">
         <slot name="caption"><span v-html="caption" /></slot>
       </figcaption>

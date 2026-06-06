@@ -1,5 +1,8 @@
 ---
 theme: ./
+themeConfig:
+  primary: "tomato"
+  accent: "#e92528"
 title: "Title"
 subtitle: "Subtitle"
 author: "Firstname Lastname"
@@ -19,6 +22,10 @@ layout: section
 # Layouts
 
 ---
+references:
+  - "Author, <em>Title</em> (Year)"
+  - "<a href='https://example.com'>source</a>"
+---
 
 # Default
 
@@ -27,8 +34,6 @@ Short, active sentences. One idea per bullet.
 - First point
 - Second point · with **emphasis**
 - Third point
-
-<div class="footer">Source · Author, <em>Title</em> (Year)</div>
 
 ---
 layout: image-right
@@ -167,7 +172,7 @@ npm install @iconify-json/pixelarticons
 
 ::right::
 
-<div class="flex flex-wrap gap-4 items-center text-4xl">
+<div class="flex flex-wrap gap-4 items-center text-4xl primary">
   <pixelarticons-star />
   <pixelarticons-heart />
   <pixelarticons-home />

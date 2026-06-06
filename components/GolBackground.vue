@@ -1,16 +1,19 @@
 <script setup lang="ts">
-import { useDarkMode } from '@slidev/client'
 import { ref, watch } from 'vue'
+import { useDarkMode } from '@slidev/client'
 import { useGameOfLife } from '../composables/useGameOfLife'
 
-const props = defineProps<{ detailed?: boolean; color?: string }>()
-const { isDark } = useDarkMode()
+const props = defineProps<{ color?: string; invert?: boolean }>()
 const canvasRef = ref<HTMLCanvasElement | null>(null)
+const { isDark } = useDarkMode()
 
 const { draw } = useGameOfLife(
   canvasRef,
-  () => props.color ?? (isDark.value ? '#fff' : '#000'),
-  { detailed: props.detailed }
+  () => {
+    if (props.color) return props.color
+    const v = props.invert ? '--bg' : '--text'
+    return getComputedStyle(document.documentElement).getPropertyValue(v).trim() || (props.invert ? '#fff' : '#000')
+  },
 )
 
 watch(isDark, draw)
@@ -32,9 +35,8 @@ watch(isDark, draw)
   image-rendering: pixelated;
 }
 
-/* cover and section variants need z-index: 0 so cells render above their dark backgrounds */
 .gol-bg.gol-cover   { opacity: 0.04; z-index: 0; }
-.gol-bg.gol-section { opacity: 0.07;  z-index: 0; }
+.gol-bg.gol-section { opacity: 0.07; z-index: 0; }
 
 @media (prefers-reduced-motion: reduce) {
   .gol-bg { display: none; }

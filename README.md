@@ -2,7 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/slidev-theme-pixel?color=000&label=)](https://www.npmjs.com/package/slidev-theme-pixel) [![MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-A stark, pixel-driven theme for [Slidev](https://github.com/slidevjs/slidev). Black and white. Monospace. Every slide carries a random pixel grid (unique every load and refresh !)
+A stark, typographic theme for [Slidev](https://github.com/slidevjs/slidev). Black and white by default. Monospace accents. Animated pixel grid on section slides.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/cover.png" width="49%" />
@@ -11,7 +11,7 @@ A stark, pixel-driven theme for [Slidev](https://github.com/slidevjs/slidev). Bl
 
 ## Install
 
-Add the following frontmatter to your `slides.md`. Start Slidev then it will prompt you to install the theme automatically.
+Add the following frontmatter to your `slides.md`. Start Slidev and it will prompt you to install the theme automatically.
 
 ```
 ---
@@ -21,11 +21,39 @@ theme: pixel
 
 Learn more about [how to use a theme](https://sli.dev/guide/theme-addon#use-theme).
 
+---
+
+## Primary color
+
+Set `themeConfig.primary` in your root frontmatter to give the theme a brand color. Defaults to `#000000`.
+
+```yaml
+---
+theme: pixel
+themeConfig:
+  primary: '#e92528'
+---
+```
+
+Any CSS color works. The section layout always uses this color as its background with white text, so contrast stays readable regardless of your choice.
+
+---
+
+## Fonts
+
+Default font pair: **Plus Jakarta Sans** (sans) + **Atkinson Hyperlegible Mono** (mono). Override in frontmatter:
+
+```yaml
+fonts:
+  sans: Roboto
+  mono: Space Mono
+```
+
+---
+
 ## Cover slide
 
-Add the following fields to the root frontmatter of your `slides.md`:
-
-```
+```yaml
 ---
 theme: pixel
 layout: cover
@@ -43,19 +71,22 @@ logos:
 
 Toggle dark mode with the `D` key.
 
+---
+
 ## Layouts
 
-This theme provides the following layouts:
+### `cover`
+
+Full-bleed cover with title, subtitle, author, and logos. Fields: `title`, `subtitle`, `author`, `email`, `github`, `logos` (array of `src` strings or `{ src, height }` objects).
 
 ---
 
-### Section `section`
+### `section`
 
-Inverts the current color mode (dark on light · light on dark). Animated pixel grid overlay.
+Dark slide for transitions between parts. Background uses `--slidev-theme-primary` (default black), text always white. Animated pixel grid overlay.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/section.png" width="49%" />
-  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/section-dark.png" width="49%" />
 </p>
 
 ```
@@ -70,9 +101,9 @@ _Subtitle_
 
 ---
 
-### Default `default`
+### `default`
 
-Standard content slide. Use `.footer` for a vertical source label (top-right).
+Standard content slide. Use `.ref` or `.footer` for a vertical source label (top-right).
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/default.png" width="49%" />
@@ -94,9 +125,9 @@ Short sentences. One idea per bullet.
 
 ---
 
-### Two columns `two-cols`
+### `two-cols`
 
-Two-column layout with optional full-width title.
+Two-column layout with an optional `::title::` slot.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/two-cols.png" width="49%" />
@@ -122,9 +153,9 @@ Right column content.
 
 ---
 
-### Two columns with bottom `two-cols-bottom`
+### `two-cols-bottom`
 
-Two columns with a full-width zone below both.
+Two columns with a full-width zone below.
 
 ```
 ---
@@ -149,14 +180,9 @@ Full-width content below both columns.
 
 ---
 
-### Grid `grid`
+### `grid`
 
-- Add `grid` in the layout field.
-- Set the number of columns with `cols`.
-- Prose elements (`h1`-`h3`, `p`, `pre`, `blockquote`) span all columns automatically.
-- Components (`<Figure>`, `<Card>`, ...) become the grid items.
-- To place text in a single cell, wrap it in a `<div>`.
-- Add `variant: book` for book covers (fixed height · object-fit contain · shadow).
+CSS grid. Set `cols` (number of columns). Prose elements (`h1`-`h3`, `p`, `pre`, `blockquote`) span all columns automatically. Components (`<Figure>`, `<Card>`, ...) become grid items.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/grid.png" width="49%" />
@@ -172,18 +198,15 @@ cols: 3
 # Title
 
 <Figure src="/img/photo.jpg" caption="Author, <em>Title</em> (Year)" />
-<Figure src="/img/photo2.jpg" caption="Author, <em>Title</em> (Year)" />
-<Figure src="/img/photo3.jpg" caption="Author, <em>Title</em> (Year)" />
+<Figure src="/img/photo2.jpg" caption="..." />
+<Figure src="/img/photo3.jpg" caption="..." />
 ```
 
 ---
 
-### Image right `image-right`
+### `image-right`
 
-- Add `image-right` in the layout field.
-- Add the image URL in the `image` field.
-- Set `backgroundSize` to `contain` (default) or `cover`.
-- Add a caption with the `caption` field.
+Image on the right, text on the left. `backgroundSize`: `contain` (default) or `cover`.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/image-right.png" width="49%" />
@@ -205,15 +228,12 @@ Text on the left.
 
 ---
 
-### Full-bleed image `image-full`
+### `image-full`
 
-- Add `image-full` in the layout field.
-- Add the image URL in the `image` field.
-- Add an optional `caption` prop (HTML inline supported) and `href` to make it a link.
+Full-bleed image with optional caption and link.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/image-full.png" width="49%" />
-  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/image-full-dark.png" width="49%" />
 </p>
 
 ```
@@ -225,11 +245,13 @@ href: "https://..."
 ---
 ```
 
+`caption` accepts inline HTML. `href` makes the caption a link. `backgroundSize`: `cover` (default) or `contain`.
+
 ---
 
-### Fact `fact`
+### `fact`
 
-A single bold statement, vertically centered.
+Single bold statement, vertically centered.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/fact.png" width="49%" />
@@ -246,17 +268,12 @@ layout: fact
 
 ---
 
-### Photo wall `photowall`
+### `photowall`
 
-Full-screen photo grid. Always dark. Automatic layout based on image count. Images defined in frontmatter YAML.
-
-- `images` · array of `{ src, caption?, href? }`
-- `caption` · accepts inline HTML
-- `href` · optional, makes the image a link
+Full-screen photo grid. Always dark. Automatic layout based on image count.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/photowall.png" width="49%" />
-  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/photowall-dark.png" width="49%" />
 </p>
 
 ```
@@ -268,12 +285,10 @@ images:
     href: "https://..."
   - src: "/images/photo2.jpg"
     caption: "Author · <em>Title</em> (Year)"
-  - src: "/images/photo3.jpg"
-    caption: "Author · <em>Title</em> (Year)"
-  - src: "/images/photo4.jpg"
-    caption: "Author · <em>Title</em> (Year)"
 ---
 ```
+
+`href` is optional (makes the image a link). `caption` accepts inline HTML.
 
 | Count | Layout |
 |---|---|
@@ -287,45 +302,26 @@ images:
 
 ## Components
 
----
-
 ### `<Figure>`
 
-Image with optional caption and link. Use inside `layout: grid` or standalone.
-
-- `src` · image URL
-- `caption` · accepts inline HTML (`<em>`, `<a>`)
-- `href` · optional, makes the image a link
-- `alt` · alt text
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/figure.png" width="49%" />
-  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/figure-dark.png" width="49%" />
-</p>
+Image with optional caption and link.
 
 ```
 <Figure
   src="/img/photo.jpg"
   caption="Author · <em>Title</em> (Year)"
   href="https://..."
+  alt="Description"
 />
 ```
+
+Props: `src`, `caption` (inline HTML), `href` (optional), `alt`.
 
 ---
 
 ### `<Card>`
 
-Terminal-style card with a header bar (three dots + tag). Use inside `layout: grid`.
-
-- `tag` : small label in the header
-- `title` : card title
-- `footer` : optional footer line
-- `color` : CSS color, tints dots, tag, border, and header
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/card.png" width="49%" />
-  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/card-dark.png" width="49%" />
-</p>
+Terminal-style card. Use inside `layout: grid`.
 
 ```
 ---
@@ -337,7 +333,9 @@ cols: 3
 <Card color="#e92528" tag="warning" title="Title">Body text.</Card>
 ```
 
-Use `color` to replace callout-style admonitions:
+Props: `tag`, `title`, `footer` (optional), `color` (CSS color, tints header and border).
+
+Semantic color conventions:
 
 ```
 <Card color="#6b7280" tag="note"    title="Note">Neutral information.</Card>
@@ -348,21 +346,36 @@ Use `color` to replace callout-style admonitions:
 
 ---
 
+## CSS classes
+
+### Source label
+
+`.ref` — vertical source label, top-right, monospace. Use on any slide:
+```html
+<div class="ref">Source · Author, <em>Title</em> (Year) · <a href="...">link</a></div>
+```
+
+### Utilities
+
+| Class | Effect |
+|---|---|
+| `.ref` | Vertical source label, top-right |
+| `.mono` | Force monospace font |
+| `.muted` | Muted text color |
+| `.primary` | Primary text color |
+
+---
+
 ## Icons
 
-This theme includes [Pixelify Icons](https://github.com/halfmage/pixelarticons) : 816 free pixel-art icons, installed automatically with the theme.
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/icons.png" width="49%" />
-  <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/icons-dark.png" width="49%" />
-</p>
+Includes [Pixelify Icons](https://github.com/halfmage/pixelarticons) (816 pixel-art icons, installed automatically).
 
 ```
 <pixelarticons-star />
 <pixelarticons-arrow-right class="text-2xl" />
 ```
 
-Browse all icons at [icones.js.org](https://icones.js.org) (collection: `pixelarticons`).
+Browse at [icones.js.org](https://icones.js.org) (collection: `pixelarticons`).
 
 ---
 
