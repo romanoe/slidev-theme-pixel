@@ -2,7 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/slidev-theme-pixel?color=000&label=)](https://www.npmjs.com/package/slidev-theme-pixel) [![MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-A stark, typographic theme for [Slidev](https://github.com/slidevjs/slidev). Black and white by default. Monospace accents. Animated pixel grid on section slides.
+A minimalist, typographic theme for [Slidev](https://github.com/slidevjs/slidev). Black and white by default. Monospace accents. Random pixel grid on section slides : unique every load ! 👾
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/cover.png" width="49%" />
@@ -83,7 +83,7 @@ Full-bleed cover with title, subtitle, author, and logos. Fields: `title`, `subt
 
 ### `section`
 
-Dark slide for transitions between parts. Background uses `--slidev-theme-primary` (default black), text always white. Animated pixel grid overlay.
+Dark slide for transitions between parts. Background uses `--slidev-theme-primary` (default black), text always white. Random pixel grid overlay, unique every load.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/section.png" width="49%" />
@@ -103,7 +103,7 @@ _Subtitle_
 
 ### `default`
 
-Standard content slide. Use `.ref` or `.footer` for a vertical source label (top-right).
+Standard content slide. Use `.ref` for a vertical source label (top-right).
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/default.png" width="49%" />
@@ -120,7 +120,7 @@ Short sentences. One idea per bullet.
 - First point
 - Second point · with **emphasis**
 
-<div class="footer">Source · Author, <em>Title</em> (Year)</div>
+<div class="ref">Source · Author, <em>Title</em> (Year)</div>
 ```
 
 ---
@@ -346,14 +346,33 @@ Semantic color conventions:
 
 ---
 
-## CSS classes
+## Source labels
 
-### Source label
+Two ways to add a source to any slide · both render as a vertical label, top-right.
 
-`.ref` — vertical source label, top-right, monospace. Use on any slide:
+**Frontmatter** (preferred for simple citations):
+```yaml
+---
+references: "Author, <em>Title</em> (Year)"
+---
+```
+Array form (joined with ` · `):
+```yaml
+---
+references:
+  - "Author, <em>Title</em> (Year)"
+  - "Second source"
+---
+```
+
+**Inline** (when you need a link or richer HTML):
 ```html
 <div class="ref">Source · Author, <em>Title</em> (Year) · <a href="...">link</a></div>
 ```
+
+---
+
+## CSS classes
 
 ### Utilities
 
