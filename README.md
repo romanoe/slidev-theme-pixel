@@ -19,7 +19,7 @@ theme: pixel
 ---
 ```
 
-Learn more about [how to use a theme](https://sli.dev/themes/use).
+Learn more about [how to use a theme](https://sli.dev/guide/theme-addon#use-theme).
 
 ## Cover slide
 
@@ -350,16 +350,12 @@ Use `color` to replace callout-style admonitions:
 
 ## Icons
 
-This theme includes [Pixelify Icons](https://github.com/halfmage/pixelarticons) : 816 free pixel-art icons.
+This theme includes [Pixelify Icons](https://github.com/halfmage/pixelarticons) : 816 free pixel-art icons, installed automatically with the theme.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/icons.png" width="49%" />
   <img src="https://raw.githubusercontent.com/romanoe/slidev-theme-pixel/main/screenshots/icons-dark.png" width="49%" />
 </p>
-
-```bash
-npm install @iconify-json/pixelarticons
-```
 
 ```
 <pixelarticons-star />

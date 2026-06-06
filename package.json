@@ -17,6 +17,7 @@
   },
   "license": "MIT",
   "files": [
+    "global-bottom.vue",
     "layouts",
     "components",
     "composables",
@@ -36,10 +37,10 @@
     "version": "git add -A"
   },
   "dependencies": {
+    "@iconify-json/pixelarticons": "^1.2.6",
     "@slidev/types": "^52.16.0"
   },
   "devDependencies": {
-    "@iconify-json/pixelarticons": "^1.2.6",
     "@slidev/cli": "^52.16.0"
   },
   "slidev": {
