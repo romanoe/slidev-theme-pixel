@@ -27,8 +27,9 @@ const currentFm = computed(() => (slides.value?.[currentSlideNo.value - 1]?.meta
 watchEffect(() => {
   const cfg = rootFm.value.themeConfig ?? {}
   const dark = isDark.value
-  document.documentElement.style.setProperty('--text',         cfg.primary ?? (dark ? '#f0f0f0' : '#000000'))
-  document.documentElement.style.setProperty('--color-accent', cfg.accent  ?? '#e92528')
+  const primary = cfg.primary ?? (dark ? '#f0f0f0' : '#000000')
+  document.documentElement.style.setProperty('--text', primary)
+  document.documentElement.style.setProperty('--slidev-theme-primary', cfg.primary ?? '#000000')
 })
 
 const references = computed(() => {

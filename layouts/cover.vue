@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { handleBackground, useSlideContext } from '@slidev/client'
-import { computed } from 'vue'
+import { computed, ref, watchEffect } from 'vue'
 import GolBackground from '../components/GolBackground.vue'
 
 const props = defineProps<{ background?: string }>()
@@ -20,6 +20,20 @@ const logos = computed<LogoItem[]>(() => {
   if ($frontmatter.logo) return [normalize($frontmatter.logo)]
   return []
 })
+
+const svgCache = ref<Record<string, string>>({})
+watchEffect(async () => {
+  for (const logo of logos.value) {
+    if (logo.src.endsWith('.svg') && !svgCache.value[logo.src]) {
+      try {
+        const res = await fetch(logo.src)
+        svgCache.value[logo.src] = await res.text()
+      } catch {
+        svgCache.value[logo.src] = ''
+      }
+    }
+  }
+})
 const title    = computed(() => ($frontmatter.title ?? '').replace(/^"(.+)"$/, '$1'))
 const subtitle = computed(() => $frontmatter.subtitle ?? '')
 const author   = computed(() => $frontmatter.author ?? '')
@@ -36,7 +50,10 @@ const date     = computed(() =>
   <div class="slidev-layout cover" :style="style">
     <GolBackground class="gol-cover" />
     <div class="absolute top-8 left-14 right-14 flex justify-between items-center">
-      <img v-for="logo in logos" :key="logo.src" :src="logo.src" class="cover-logo" :style="{ '--logo-h': logo.height ?? '40px' }" />
+      <template v-for="logo in logos" :key="logo.src">
+        <span v-if="logo.src.endsWith('.svg')" class="cover-logo" :style="{ '--logo-h': logo.height ?? '40px' }" v-html="svgCache[logo.src] ?? ''" />
+        <img v-else :src="logo.src" class="cover-logo" :style="{ '--logo-h': logo.height ?? '40px' }" />
+      </template>
     </div>
     <h1>{{ title }}</h1>
     <p v-if="subtitle" class="mono muted text-sm mt-1 tracking-wide">{{ subtitle }}</p>
