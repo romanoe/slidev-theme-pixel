@@ -1,16 +1,15 @@
 ---
 theme: ./
 themeConfig:
-  primary: "tomato"
-  accent: "#e92528"
+  primary: "yellow"
 title: "Title"
 subtitle: "Subtitle"
 author: "Firstname Lastname"
 email: "firstname.lastname@example.com"
 github: "https://github.com/example/repo"
 logos:
-  - /images/logo-a.svg
-  - /images/logo-b.svg
+  - /images/logo.svg
+  - /images/logo.svg
 mdc: true
 layout: cover
 ---
@@ -34,6 +33,40 @@ Short, active sentences. One idea per bullet.
 - First point
 - Second point · with **emphasis**
 - Third point
+
+---
+layout: two-cols
+---
+
+::title::
+# Two cols
+
+::left::
+
+Left column.
+
+::right::
+
+Right column.
+
+---
+layout: two-cols-bottom
+---
+
+::title::
+# Two cols bottom
+
+::left::
+
+Left column.
+
+::right::
+
+Right column.
+
+::bottom::
+
+Full-width zone below both columns.
 
 ---
 layout: image-right
