@@ -6,7 +6,7 @@ const slots = useSlots()
 </script>
 
 <template>
-  <div class="slidev-layout w-full h-full grid grid-cols-2 gap-12"
+  <div class="slidev-layout w-full h-full grid grid-cols-2 gap-x-12"
        :class="slots.title ? 'rows-title-content' : ''">
     <GolBackground />
     <div v-if="slots.title" class="col-span-full slide-cell">
