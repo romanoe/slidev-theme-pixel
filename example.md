@@ -1,7 +1,7 @@
 ---
 theme: ./
 themeConfig:
-  primary: "yellow"
+  primary: "#000000"
 title: "Title"
 subtitle: "Subtitle"
 author: "Firstname Lastname"
