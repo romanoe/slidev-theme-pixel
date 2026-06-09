@@ -129,7 +129,7 @@ layout: two-cols
 
 ::right::
 
-<Card tag="concept" title="Default">Neutral style : no color prop.</Card>
+<Card tag="concept" title="Default">No <code>color</code> prop · uses the muted text color for all accents.</Card>
 
 <Card color="#e92528" tag="warning" title="Colored">Use <code>color</code> to set the accent · dots, tag, border, and header.</Card>
 
