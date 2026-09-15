@@ -1,6 +1,6 @@
 {
   "name": "slidev-theme-pixel",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
   "description": "A minimalist, typographic Slidev theme · black and white, monospace, random pixel grid unique every load.",
   "keywords": [

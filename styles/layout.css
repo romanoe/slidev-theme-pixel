@@ -121,6 +121,22 @@
     align-content: start;
 
     h1, h2, h3, p, pre, blockquote { grid-column: 1 / -1; }
+
+    /* align: stretch -> les cards d'une meme ligne prennent la hauteur de la plus haute */
+    &.cards-stretch > .card { align-self: stretch; }
+
+    /* content: center -> le titre reste en haut, le reste est centre verticalement.
+       Deux lignes-ressorts encadrent le contenu et absorbent l'espace libre. */
+    &.content-centered {
+      grid-template-rows: auto 1fr auto 1fr;
+
+      > h1, > h2, > h3 { grid-row: 1; }
+
+      &::before, &::after { content: ''; grid-column: 1 / -1; }
+      &::before { grid-row: 2; }
+      &::after  { grid-row: 4; }
+    }
+
     figure img { width: 100%; border-radius: 0.25rem; object-fit: cover; }
   }
 
@@ -228,6 +244,13 @@
 .primary { color: var(--text); }
 .muted   { color: var(--text-muted); }
 .mono    { font-family: var(--font-mono); }
+
+/* Detache un document ou une capture du fond du slide */
+.framed img {
+  border: 1px solid var(--color-border);
+  border-radius: 0.25rem;
+  box-shadow: 0 6px 24px color-mix(in srgb, var(--text) 18%, transparent);
+}
 
 figcaption {
   font-family: var(--font-mono);

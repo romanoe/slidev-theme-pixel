@@ -202,6 +202,18 @@ cols: 3
 <Figure src="/img/photo3.jpg" caption="..." />
 ```
 
+**Props**
+
+| Prop | Effect |
+|---|---|
+| `cols` | Number of equal columns, or a custom `grid-template-columns` string (e.g. `3fr 1fr 3fr`) |
+| `rows` | Custom `grid-template-rows` |
+| `align` | `align-items` for grid items. `stretch` also makes `<Card>` items share the tallest card's height |
+| `justify` | `justify-items` for grid items |
+| `content` | Vertical placement of the grid. `center` keeps the heading pinned at the top and centres everything below it in the remaining space; any other value is passed straight to `align-content` |
+
+With `align: stretch`, non-card items such as inline icons keep their own size; add `class="self-center"` to centre them against the taller cards.
+
 ---
 
 ### `image-right`
@@ -382,6 +394,7 @@ references:
 | `.mono` | Force monospace font |
 | `.muted` | Muted text color |
 | `.primary` | Primary text color |
+| `.framed` | Border and drop shadow on a figure's image, to lift a document or screenshot off the slide background |
 
 ---
 
