@@ -16,10 +16,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Surtout pas de `registry-url` ici : setup-node ecrirait un .npmrc avec
+      # le jeton bouche-trou XXXXX-XXXXX-XXXXX-XXXXX, npm se croirait
+      # authentifie et n'echangerait jamais le jeton OIDC.
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-          registry-url: 'https://registry.npmjs.org'
 
       # Le trusted publishing exige npm >= 11.5.1
       - run: npm install -g npm@latest

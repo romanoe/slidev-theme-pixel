@@ -10,7 +10,7 @@
   "homepage": "https://github.com/romanoe/slidev-theme-pixel#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/romanoe/slidev-theme-pixel.git"
+    "url": "git+https://github.com/romanoe/slidev-theme-pixel.git"
   },
   "bugs": {
     "url": "https://github.com/romanoe/slidev-theme-pixel/issues"
