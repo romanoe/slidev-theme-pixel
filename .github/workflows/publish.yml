@@ -4,6 +4,11 @@ on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write   # requis par le trusted publishing npm (OIDC)
 
 jobs:
   publish:
@@ -13,11 +18,14 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
           registry-url: 'https://registry.npmjs.org'
+
+      # Le trusted publishing exige npm >= 11.5.1
+      - run: npm install -g npm@latest
 
       - run: npm ci
 
+      # Aucun NODE_AUTH_TOKEN : npm echange le jeton OIDC de GitHub
+      # contre un jeton de publication ephemere.
       - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
