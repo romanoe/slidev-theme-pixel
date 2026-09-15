@@ -22,8 +22,10 @@ const isActive = computed(() => props.at === undefined || clicks.value === props
       <span v-if="tag" class="tag mono uppercase tracking-[0.1em] text-[0.5rem]">{{ tag }}</span>
     </div>
     <div class="flex flex-col gap-[0.1rem] p-4">
-      <p v-if="title" class="title mono uppercase font-700 text-[0.9rem] leading-tight m-0">
-        <span class="prompt">$</span> {{ title }}
+      <p v-if="title" class="title mono uppercase font-700 text-[0.9rem] leading-tight m-0 flex items-center gap-[0.5rem]">
+        <span v-if="$slots.icon" class="card-icon" aria-hidden="true"><slot name="icon" /></span>
+        <span v-else class="prompt">$</span>
+        <span>{{ title }}</span>
       </p>
       <div class="text-[0.8rem] leading-relaxed">
         <slot />
@@ -60,6 +62,14 @@ const isActive = computed(() => props.at === undefined || clicks.value === props
 
   font-family: var(--font-mono);
 
+  .card-icon {
+    color: var(--card-color);
+    font-size: 1.1rem;
+    line-height: 1;
+    display: inline-flex;
+    flex-shrink: 0;
+  }
+
   .tag    { color: var(--card-color); }
   .title  { color: var(--card-color); }
   .prompt { color: color-mix(in srgb, var(--card-color) 20%, var(--bg-subtle)); font-weight: 200; }
@@ -70,6 +80,7 @@ const isActive = computed(() => props.at === undefined || clicks.value === props
 }
 
 .card :deep(p) { margin-top: 0; margin-bottom: 0; }
+.card-icon :deep(svg) { display: block; }
 
 .card { transition: opacity 0.4s; }
 .card.is-inactive { opacity: 0.25; }
