@@ -57,6 +57,7 @@ fonts:
 ---
 theme: pixel
 layout: cover
+number: "01"
 title: "Course Title"
 subtitle: "Course subtitle"
 author: "Firstname Lastname"
