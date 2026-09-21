@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { resolveAssetUrl } from '@slidev/client'
 import { computed } from 'vue'
 import GolBackground from '../components/GolBackground.vue'
 
@@ -23,7 +24,7 @@ const imgClass = computed(() =>
       <slot />
     </div>
     <div class="flex flex-col justify-center w-full h-full">
-      <img v-if="image" :src="image" class="w-full max-h-[90vh]" :class="imgClass" />
+      <img v-if="image" :src="resolveAssetUrl(image)" class="w-full max-h-[90vh]" :class="imgClass" />
       <figcaption v-if="slots.caption || caption" class="px-3 pt-1">
         <slot name="caption"><span v-html="caption" /></slot>
       </figcaption>
