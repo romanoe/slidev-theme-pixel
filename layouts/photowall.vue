@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { resolveAssetUrl } from '@slidev/client'
 const props = defineProps<{
   images: Array<{ src: string; caption?: string; href?: string }>
 }>()
@@ -30,9 +31,9 @@ const spans = props.images.length >= 5
       :style="spans ? { gridColumn: `span ${spans[i].col}`, gridRow: `span ${spans[i].row}` } : undefined"
     >
       <a v-if="img.href" :href="img.href" target="_blank" rel="noopener">
-        <img :src="img.src" :alt="img.caption ?? ''" />
+        <img :src="resolveAssetUrl(img.src)" :alt="img.caption ?? ''" />
       </a>
-      <img v-else :src="img.src" :alt="img.caption ?? ''" />
+      <img v-else :src="resolveAssetUrl(img.src)" :alt="img.caption ?? ''" />
       <figcaption v-if="img.caption" v-html="img.caption" />
     </figure>
     <slot />

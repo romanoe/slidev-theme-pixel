@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { resolveAssetUrl } from '@slidev/client'
+
 defineProps<{
   src: string
   alt?: string
@@ -10,9 +12,9 @@ defineProps<{
 <template>
   <figure class="m-0 flex flex-col">
     <a v-if="href" :href="href" target="_blank" rel="noopener">
-      <img :src="src" :alt="alt ?? ''" class="w-full block" />
+      <img :src="resolveAssetUrl(src)" :alt="alt ?? ''" class="w-full block" />
     </a>
-    <img v-else :src="src" :alt="alt ?? ''" class="w-full block" />
+    <img v-else :src="resolveAssetUrl(src)" :alt="alt ?? ''" class="w-full block" />
     <figcaption v-if="caption" v-html="caption" />
   </figure>
 </template>

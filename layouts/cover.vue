@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { handleBackground, useSlideContext } from '@slidev/client'
+import { handleBackground, resolveAssetUrl, useSlideContext } from '@slidev/client'
 import { computed, ref, watchEffect } from 'vue'
 import GolBackground from '../components/GolBackground.vue'
 
@@ -26,7 +26,7 @@ watchEffect(async () => {
   for (const logo of logos.value) {
     if (logo.src.endsWith('.svg') && !svgCache.value[logo.src]) {
       try {
-        const res = await fetch(logo.src)
+        const res = await fetch(resolveAssetUrl(logo.src))
         svgCache.value[logo.src] = await res.text()
       } catch {
         svgCache.value[logo.src] = ''
@@ -55,7 +55,7 @@ const date     = computed(() =>
     <div class="absolute top-8 left-14 right-14 flex justify-between items-center">
       <template v-for="logo in logos" :key="logo.src">
         <span v-if="logo.src.endsWith('.svg')" class="cover-logo" :style="{ '--logo-h': logo.height ?? '40px' }" v-html="svgCache[logo.src] ?? ''" />
-        <img v-else :src="logo.src" class="cover-logo" :style="{ '--logo-h': logo.height ?? '40px' }" />
+        <img v-else :src="resolveAssetUrl(logo.src)" class="cover-logo" :style="{ '--logo-h': logo.height ?? '40px' }" />
       </template>
     </div>
     <h1>{{ title }}</h1>
