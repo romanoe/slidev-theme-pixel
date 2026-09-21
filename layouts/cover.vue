@@ -34,7 +34,10 @@ watchEffect(async () => {
     }
   }
 })
-const title    = computed(() => ($frontmatter.title ?? '').replace(/^"(.+)"$/, '$1'))
+const unquote  = (raw: unknown) => String(raw ?? '').replace(/^"(.+)"$/, '$1').trim()
+// Le point médian est posé par le layout : `number` et `title` restent deux champs distincts.
+const number   = computed(() => unquote($frontmatter.number))
+const title    = computed(() => [number.value, unquote($frontmatter.title)].filter(Boolean).join(' · '))
 const subtitle = computed(() => $frontmatter.subtitle ?? '')
 const author   = computed(() => $frontmatter.author ?? '')
 const email    = computed(() => $frontmatter.email ?? '')

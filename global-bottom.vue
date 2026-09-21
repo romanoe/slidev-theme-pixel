@@ -38,20 +38,31 @@ const references = computed(() => {
   return Array.isArray(val) ? val.join(' · ') : val
 })
 
+const clean = (raw: string) => raw
+  .replace(/<[^>]*>/g, ' ')
+  .replace(/^"(.*)"$/, '$1')
+  .replace(/"/g, '')
+  .replace(/[?!:]/g, '')
+  .replace(/\s+/g, ' ')
+  .toLowerCase()
+  .trim()
+
+// Le fil d'Ariane nomme le deck, pas le cours : « introduction / entités ».
 const courseLabel = computed(() => {
   const raw = rootFm.value.title ?? ''
-  return raw.replace(/^"(.*)"$/, '$1').toLowerCase().replace(/^(\d+)[.\s-]+/, '').replace(/"/g, '').trim()
+  return clean(String(raw)).replace(/^(\d+)[.\s\u00b7-]+/, '')
 })
 
+// `meta.slide.content` est vide dans un build de production : le titre de la
+// slide de section se lit sur `meta.slide.title`, seul champ présent des deux côtés.
 const sectionLabel = computed(() => {
   const idx = currentSlideNo.value - 1
   for (let i = idx; i >= 0; i--) {
-    const slide = slides.value?.[i]
-    const meta = slide?.meta?.slide as any
-    if (meta?.frontmatter?.layout === 'section') {
-      const match = (meta?.content ?? '').match(/^#\s+(.+)$/m)
-      if (match) return match[1].toLowerCase().replace(/[?!:]/g, '').trim()
-    }
+    const meta = slides.value?.[i]?.meta?.slide as any
+    if (meta?.frontmatter?.layout !== 'section') continue
+    const title = meta?.title ?? (meta?.content ?? '').match(/^#\s+(.+)$/m)?.[1] ?? ''
+    const label = clean(String(title))
+    if (label) return label
   }
   return ''
 })
