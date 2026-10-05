@@ -17,17 +17,17 @@ const isActive = computed(() => props.at === undefined || clicks.value === props
 <template>
   <div class="card" :style="color ? { '--card-color': color } : {}"
        :class="{ 'is-inactive': at !== undefined && !isActive }">
-    <div class="header flex items-center px-3 py-[0.35rem]" aria-hidden="true">
+    <div class="header flex items-center px-3 py-[0.25rem]" aria-hidden="true">
       <span class="dots inline-block w-[0.4rem] h-[0.4rem] rounded-full shrink-0 mr-6" />
       <span v-if="tag" class="tag mono uppercase tracking-[0.1em] text-[0.5rem]">{{ tag }}</span>
     </div>
-    <div class="flex flex-col gap-[0.1rem] p-4">
-      <p v-if="title" class="title mono uppercase font-700 text-[0.9rem] leading-tight m-0 flex items-center gap-[0.5rem]">
+    <div class="card-content flex flex-col gap-[0.1rem] px-4 py-3">
+      <p v-if="title" class="title mono uppercase font-700 leading-tight m-0 flex items-center gap-[0.5rem]">
         <span v-if="$slots.icon" class="card-icon" aria-hidden="true"><slot name="icon" /></span>
         <span v-else class="prompt">$</span>
         <span>{{ title }}</span>
       </p>
-      <div class="text-[0.8rem] leading-relaxed">
+      <div class="body leading-normal">
         <slot />
       </div>
       <div v-if="footer" class="footer mono text-[0.65rem] pt-2">{{ footer }}</div>
@@ -64,14 +64,15 @@ const isActive = computed(() => props.at === undefined || clicks.value === props
 
   .card-icon {
     color: var(--card-color);
-    font-size: 1.1rem;
+    font-size: 1.3em;
     line-height: 1;
     display: inline-flex;
     flex-shrink: 0;
   }
 
   .tag    { color: var(--card-color); }
-  .title  { color: var(--card-color); }
+  .title  { color: var(--card-color); font-size: var(--fs-small); }
+  .body   { font-size: var(--fs-small); }
   .prompt { color: color-mix(in srgb, var(--card-color) 20%, var(--bg-subtle)); font-weight: 200; }
   .footer {
     color: color-mix(in srgb, var(--text-body) 40%, var(--bg));
@@ -79,7 +80,7 @@ const isActive = computed(() => props.at === undefined || clicks.value === props
   }
 }
 
-.card :deep(p) { margin-top: 0; margin-bottom: 0; }
+.card :deep(p) { margin-top: 0; margin-bottom: 0; font-size: inherit; }
 .card-icon :deep(svg) { display: block; }
 
 .card { transition: opacity 0.4s; }

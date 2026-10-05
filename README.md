@@ -397,6 +397,39 @@ references:
 | `.primary` | Primary text color |
 | `.framed` | Border and drop shadow on a figure's image, to lift a document or screenshot off the slide background |
 
+### Slide classes
+
+Set in the slide frontmatter with `class:`.
+
+| Class | Effect |
+|---|---|
+| `compact` | Tighter tables, paragraphs, `###` and cards, for slides carrying several data tables |
+| `split` | On `two-cols`: splits the right column into two sub-columns. Expected order: `###`, then label + table (left), label + table (right), then an optional list spanning both |
+
+### Typography
+
+Font sizes are CSS variables tuned for projection. The Slidev canvas is 980 × 552, so 1 px is roughly 1 pt on a 16:9 slide.
+
+| Variable | Size | Used for |
+|---|---|---|
+| `--fs-h1` | 32 px | Slide title |
+| `--fs-h3` | 22 px | Subheading |
+| `--fs-body` | 18 px | Bullets, paragraphs, quotes |
+| `--fs-small` | 15 px | Tables, code, cards |
+| `--fs-caption` | 12 px | Captions |
+
+### Data tables
+
+A table preceded by a paragraph holding only an inline code span (the table name, e.g. `` `books` ``) is styled as a data table: dark tab for the name, full grid, lowercase headers. Other tables keep the editorial style (horizontal rules, uppercase headers).
+
+```md
+`books`
+
+| id | title |
+|---|---|
+| 1 | Germinal |
+```
+
 ---
 
 ## Icons
